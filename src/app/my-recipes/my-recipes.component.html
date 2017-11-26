@@ -1,0 +1,18 @@
+<div id="myRecipesWrapper">
+  <button type="button" class="btn btn-default">Add Recipe</button>
+  <div id="myRecipesContainer">
+    <article *ngFor="let recipe of recipes | async">
+      <figure class="col-sm-4">
+        <img src={{recipe.image}} alt="No Image">
+        <div id="recipeTitle">{{recipe.title}}</div>
+        <!-- <div class="col-sm-2">
+            <div>Съставки:</div>
+            <div *ngFor="let ingredient of recipe.ingredients">
+              {{ingredient}}
+            </div>
+          </div>
+          <div class="col-sm-4">{{recipe.preparation}}</div> -->
+      </figure>
+    </article>
+  </div>
+</div>
