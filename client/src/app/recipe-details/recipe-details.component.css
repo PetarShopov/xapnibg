@@ -1,0 +1,7 @@
+#recipeDetailsWrapper {
+    margin-top: 100px;
+    text-align: center;
+}
+recipeDetailsWrapper > img {
+    width: 40%;
+}

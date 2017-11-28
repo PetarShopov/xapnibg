@@ -1,0 +1,12 @@
+<div id="myRecipesWrapper">
+  <input type="button" class="btn btn-default" value="Добави рецепта" onclick="location.href = '/recipes/add-recipe';">
+  
+  <div id="myRecipesContainer">
+    <a *ngFor="let recipe of recipes | async" routerLink="/recipes/{{recipe.id}}">
+      <figure class="col-sm-4">
+        <img id="recipeImage" src={{recipe.image}} alt="No Image">
+        <div id="recipeTitle">{{recipe.title}}</div>
+      </figure>
+    </a>
+  </div>
+</div>

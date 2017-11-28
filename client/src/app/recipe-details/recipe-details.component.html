@@ -1,0 +1,19 @@
+<div id="recipeDetailsWrapper" *ngIf="recipe">
+  <button class="btn btn-default" (click)="goBack()">go back</button>
+  <div>
+    <div id="recipeTitle">{{recipe.title}}</div>
+    <div>
+      <img src={{recipe.image}} alt="No Image">
+    </div>
+    <br>
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-2">
+      <div>Съставки:</div>
+      <div *ngFor="let ingredient of recipe.ingredients">
+        {{ingredient}}
+      </div>
+    </div>
+    <div class="col-sm-4">{{recipe.preparation}}</div>
+  </div>
+</div>
