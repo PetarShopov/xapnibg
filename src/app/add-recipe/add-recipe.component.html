@@ -1,0 +1,32 @@
+<div id="addRecipeWrapper" class="col-sm-4">
+  <div id="title">Рецепта</div>
+  <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+    <div class="form-group">
+      <label for="title">Име</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
+      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+        Title is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="preparation">Подготовка</label>
+      <input type="text" class="form-control" id="preparation" [(ngModel)]="model.preparation" name="preparation">
+    </div>
+
+    <div class="form-group">
+      <label for="ingredients">Съставки</label>
+      <input type="text" class="form-control" id="ingredients" [(ngModel)]="model.ingredients" name="ingredients">
+    </div>
+
+    <div class="form-group">
+      <label for="image">Снимка</label>
+      <input type="text" class="form-control" id="image" [(ngModel)]="model.image" name="image">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!recipeForm.form.valid">Потвърди</button>
+    <button type="button" class="btn btn-default" (click)="recipeForm.reset()">Изтрий полетата</button>
+
+    {{diagnostic}}
+  </form>
+</div>

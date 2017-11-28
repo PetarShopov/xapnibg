@@ -1,5 +1,6 @@
 <div id="myRecipesWrapper">
-  <button type="button" class="btn btn-default">Add Recipe</button>
+  <input type="button" class="btn btn-default" value="Добави рецепта" onclick="location.href = '/recipes/add-recipe';">
+  
   <div id="myRecipesContainer">
     <article *ngFor="let recipe of recipes | async">
       <figure class="col-sm-4">

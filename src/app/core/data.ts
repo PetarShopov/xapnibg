@@ -1,5 +1,15 @@
 import { RecipeModel } from '../models/recipe.model'
-export const recipes: RecipeModel[] = [
+export let RecipesData = {
+    get() {
+        return recipes;
+    },
+
+    add(recipe) {
+        recipes.push(recipe);
+        var a = 123;
+    }
+}
+let recipes: RecipeModel[] = [
     {
         id: 1,
         title: 'ПАНИРАНИ РУЛЦА С ТИКВИЧКА И ЧЕРВЕНА ЧУШКА',
