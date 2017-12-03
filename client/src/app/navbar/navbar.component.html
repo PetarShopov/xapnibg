@@ -36,15 +36,28 @@
         <a href="#">Контакти</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#">
-          <span class="glyphicon glyphicon-user"></span> Sign Up</a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="glyphicon glyphicon-log-in"></span> Login</a>
-      </li>
-    </ul>
+    <span *ngIf="!authenticated">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/users/register">
+            <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+        <li>
+          <a href="/users/login">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      </ul>
+    </span>
+    <span *ngIf="authenticated">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/users/profile">{{username}}</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" (click)="logout()">
+            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </li>
+      </ul>
+    </span>
   </div>
 </nav>

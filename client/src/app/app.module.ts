@@ -4,6 +4,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { UsersModule } from './users/users.module'
 
 import { CoreModule } from './core/core.module';
 import { RoutesModule } from './routes.modules';
@@ -32,7 +33,8 @@ import { AuthService } from './core/auth.service'
     HttpModule,
     RoutesModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    UsersModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

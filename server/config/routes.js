@@ -1,7 +1,9 @@
 const auth = require('./auth')
 const mongoose = require('mongoose')
 const Recipe = mongoose.model('Recipe')
+const User = mongoose.model('User')
 const errorHandler = require('../utilities/error-handler')
+const passport = require('passport')
 
 module.exports = (app) => {
   app.get('/recipes/all', (req, res) => {
@@ -62,10 +64,47 @@ module.exports = (app) => {
       })
   })
 
-  // app.get('/users/register', controllers.users.registerGet)
-  // app.post('/users/register', controllers.users.registerPost)
-  // app.get('/users/login', controllers.users.loginGet)
-  // app.post('/users/login', controllers.users.loginPost)
+  app.post('/users/register', (req, res) => {
+    return passport.authenticate('local-signup', (err) => {
+      if (err) {
+        return res.status(200).json({
+          success: false,
+          message: err
+        })
+      }
+
+      return res.status(200).json({
+        success: true,
+        message: 'You have successfully signed up! Now you should be able to log in.'
+      })
+    })(req, res)
+  })
+
+  app.post('/users/login', (req, res) => {
+    return passport.authenticate('local-login', (err, token, userData) => {
+      if (err) {
+        if (err.name === 'IncorrectCredentialsError') {
+          return res.status(200).json({
+            success: false,
+            message: err.message
+          })
+        }
+  
+        return res.status(200).json({
+          success: false,
+          message: err.message
+        })
+      }
+  
+      return res.json({
+        success: true,
+        message: 'You have successfully logged in!',
+        token,
+        user: userData
+      })
+    })(req, res)
+  })
+
   // app.post('/users/logout', controllers.users.logout)
   // app.get('/users/me', controllers.users.profile)
 
