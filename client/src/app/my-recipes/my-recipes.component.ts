@@ -23,6 +23,9 @@ export class MyRecipesComponent implements OnInit {
 
   getRecipes() {
     this.isLoading = true;
-    this.recipes = this.recipeService.getRecipes().finally(() => this.isLoading = false)
+    this.recipeService.getRecipes().subscribe(data => {
+      this.recipes = data.recipes;
+      this.isLoading = false;
+    })
   }
 }
