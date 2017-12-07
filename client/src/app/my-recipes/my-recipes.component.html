@@ -1,5 +1,5 @@
 <div id="myRecipesWrapper">
-  <input type="button" class="btn btn-default" value="Добави рецепта" onclick="location.href = '/recipes/add-recipe';">
+  <input type="button" class="btn btn-default" value="Добави рецепта" (click)="openAddRecipe()">
   
   <div id="myRecipesContainer">
     <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">

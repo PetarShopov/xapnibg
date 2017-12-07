@@ -6,10 +6,13 @@ import { RegisterUserModel } from './register-user.model'
 
 @Component({
     selector: 'register',
-    templateUrl: '/register.component.html'
+    templateUrl: '/register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
     user: RegisterUserModel = new RegisterUserModel();
+    isErrorMsgVisible: Boolean = false;
+    errorMsg: String;
 
     constructor(
         private router: Router,
@@ -21,6 +24,13 @@ export class RegisterComponent {
             .subscribe(userRegistered => {
                 if (userRegistered.success) {
                     this.router.navigateByUrl('users/login')
+                } else {
+                    this.isErrorMsgVisible = true;
+                    this.errorMsg = userRegistered.message;
+                    var that = this
+                    setTimeout(function(){ 
+                        that.isErrorMsgVisible = false; 
+                    }, 3000);
                 }
             })
     }

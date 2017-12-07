@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { AuthService } from '../core/auth.service'
+import { UsersService } from '../users//users.service'
 
 @Component({
   selector: 'app-navbar',
@@ -9,17 +10,32 @@ import { AuthService } from '../core/auth.service'
   styleUrls: ['./navbar.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
   authenticated: boolean = false;
   username: string = null;
 
   constructor(
     private router: Router,
+    private userService: UsersService,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-    if (this.authService.isUserAuthenticated) {
+    this.userService.auth().subscribe(
+      value => {
+        if (value) {
+          this.authenticated = true
+        }
+      }
+    );
+    if (this.authService.isUserAuthenticated()) {
+      this.authenticated = true;
+      this.username = this.authService.getUser();
+    }
+  }
+
+  ngOnChanges() {
+    if (this.authService.isUserAuthenticated()) {
       this.authenticated = true;
       this.username = this.authService.getUser();
     }
@@ -31,5 +47,5 @@ export class NavbarComponent implements OnInit {
     this.authenticated = false;
 
     this.router.navigateByUrl('')
-}
+  }
 }

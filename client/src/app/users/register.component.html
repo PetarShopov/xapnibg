@@ -1,30 +1,34 @@
-<h1>Register User</h1>
-<form #registerForm="ngForm" (submit)="register()">
-    <div class="form-group">
-        <label for="firstName">First name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel" required />
-        <span [hidden]="firstName.valid || firstName.pristine">First name is required!</span>
-    </div>
-    <div class="form-group">
-        <label for="lastName">Last name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" required />
-        <span [hidden]="lastName.valid || lastName.pristine">Last name is required!</span>
-    </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required />
-        <span [hidden]="username.valid || username.pristine">Username is required!</span>
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required/>
-        <span [hidden]="password.valid || password.pristine">Password is required!</span>
-    </div>
-    <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
-            #confirmPassword="ngModel" required />
-        <span [hidden]="password.value === confirmPassword.value || confirmPassword.pristine">Passwords don't match!</span>
-    </div>
-    <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid || password.value !== confirmPassword.value" >Submit</button>
-</form>
+<div id="registerContainer">
+    <div id="messageContainer" *ngIf="isErrorMsgVisible">{{errorMsg}}</div>        
+    <h1>Register User</h1>
+    <form #registerForm="ngForm" (submit)="register()">
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
+                required />
+            <span [hidden]="firstName.valid || firstName.pristine">First name is required!</span>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" required/>
+            <span [hidden]="lastName.valid || lastName.pristine">Last name is required!</span>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required/>
+            <span [hidden]="username.valid || username.pristine">Username is required!</span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required/>
+            <span [hidden]="password.valid || password.pristine">Password is required!</span>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
+                #confirmPassword="ngModel" required />
+            <span [hidden]="password.value === confirmPassword.value || confirmPassword.pristine">Passwords don't match!</span>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid || password.value !== confirmPassword.value">Submit</button>
+    </form>
+</div>

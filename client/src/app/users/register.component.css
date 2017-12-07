@@ -1,0 +1,19 @@
+#registerContainer {
+    width: 30%;
+    margin: 100px auto;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    float: right;
+}
+
+#messageContainer {
+    text-align: center;
+    font-size: larger;
+    color: red;
+}
