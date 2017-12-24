@@ -16,6 +16,7 @@ import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipeService } from './recipe.service';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { CensoreTextPipe } from './censore-text.pipe'
 
 import { AuthService } from './core/auth.service'
 
@@ -26,7 +27,8 @@ import { AuthService } from './core/auth.service'
     HomeComponent,
     MyRecipesComponent,
     AddRecipeComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    CensoreTextPipe
   ],
   imports: [
     AlertModule.forRoot(),

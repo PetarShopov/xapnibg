@@ -14,6 +14,6 @@
         {{ingredient}}
       </div>
     </div>
-    <div class="col-sm-4">{{recipe.preparation}}</div>
+    <div class="col-sm-4">{{recipe.preparation | censoreText : 'рулце'}}</div>
   </div>
 </div>
