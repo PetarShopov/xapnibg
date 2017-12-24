@@ -1,0 +1,39 @@
+<div id="addBeverageWrapper">
+  <form [formGroup]="beverageForm" (ngSubmit)="onSubmit()" novalidate>
+    <div style="margin-bottom: 1em">
+      <button type="submit" [disabled]="!beverageForm.valid" class="btn btn-success">Save</button> &nbsp;
+      <button type="reset" (click)="revert()" [disabled]="!beverageForm.valid" class="btn btn-danger">Revert</button>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Name:
+        <input class="form-control" formControlName="name">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Preparation:
+        <input class="form-control" formControlName="preparation">
+      </label>
+    </div>
+    <div class="form-group radio">
+      <h4>Preparation Time:</h4>
+      <label class="center-block">
+        <input type="radio" formControlName="preparationTime" value="5">5</label>
+      <label class="center-block">
+        <input type="radio" formControlName="preparationTime" value="10">10</label>
+      <label class="center-block">
+        <input type="radio" formControlName="preparationTime" value="15">15</label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Ingredients:
+        <input class="form-control" formControlName="ingredients">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Image:
+        <input class="form-control" formControlName="image">
+      </label>
+    </div>
+  </form>
+  <p>beverageForm value: {{ beverageForm.value | json}}</p>
+</div>

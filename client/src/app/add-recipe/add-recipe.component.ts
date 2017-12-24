@@ -23,10 +23,8 @@ export class AddRecipeComponent implements OnInit {
     // this.submitted = true;
     this.recipeService.addRecipe(this.model)
     .subscribe(result => {
-      var a = result;
       this.submitted = true;
       this.router.navigateByUrl(`/recipes/my-recipes`)
-      // this.location.go('/recipes/my-recipes');
     });;
   }
   get diagnostic() { return JSON.stringify(this.model); }

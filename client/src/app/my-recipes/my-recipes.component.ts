@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/finally';
 import { Router } from '@angular/router'
 
 import { RecipeService } from '../recipe.service';
