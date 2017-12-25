@@ -37,6 +37,26 @@ module.exports = (app) => {
       })
   })
 
+  app.post('/recipes/delete/:id', (req, res) => {
+    const id = req.params.id
+
+    Recipe.findByIdAndRemove(id)
+      .then(output => {
+        res.status(200).json({
+          success: true,
+          message: 'Recipe deleted successfully.',
+          output
+        })
+      })
+      .catch(err => {
+        let message = errorHandler.handleMongooseError(err)
+        return res.status(200).json({
+          success: false,
+          message: message
+        })
+      })
+  })
+
   app.post('/recipes/add', (req, res) => {
     let recipeReq = req.body;
 
@@ -53,7 +73,7 @@ module.exports = (app) => {
       .then(recipe => {
         res.status(200).json({
           success: true,
-          message: 'Recipe added successfuly.',
+          message: 'Recipe added successfully.',
           recipe
         })
       })
@@ -91,13 +111,13 @@ module.exports = (app) => {
             message: err.message
           })
         }
-  
+
         return res.status(200).json({
           success: false,
           message: err.message
         })
       }
-  
+
       return res.json({
         success: true,
         message: 'You have successfully logged in!',
@@ -137,7 +157,7 @@ module.exports = (app) => {
       .then(beverage => {
         res.status(200).json({
           success: true,
-          message: 'Beverage added successfuly.',
+          message: 'Beverage added successfully.',
           beverage
         })
       })

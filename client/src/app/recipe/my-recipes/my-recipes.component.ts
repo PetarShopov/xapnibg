@@ -30,6 +30,12 @@ export class MyRecipesComponent implements OnInit {
     this.router.navigateByUrl('/recipes/add-recipe')
   }
 
+  deleteRecipe(id) {
+    this.recipeService.deleteRecipe(id).subscribe(result => {
+      this.router.navigateByUrl('/recipes/my-recipes')
+  })
+  }
+
   getRecipes() {
     this.isLoading = true;
     this.recipeService.getRecipes().subscribe(data => {

@@ -6,6 +6,7 @@
       <figure class="col-sm-4">
         <img id="recipeImage" src={{recipe.image}} alt="No Image">
         <div id="recipeTitle">{{recipe.title}}</div>
+        <input type="button" class="btn btn-default" value="Изтрий рецепта" (click)="deleteRecipe(recipe._id)">
       </figure>
     </a>
   </div>

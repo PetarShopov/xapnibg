@@ -22,6 +22,10 @@ export class RecipeService {
     return this.httpService.post('recipes/add', recipe);
   }
 
+  deleteRecipe(id): any {
+    return this.httpService.post(`recipes/delete/${id}`, {});
+  }
+
   getRecipeById(id): Observable<RecipeModel> {
     return this.httpService.get(`recipes/${id}`);
   }
