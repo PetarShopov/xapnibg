@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from './core/http.service'
+import { HttpService } from '../core/http.service'
 
 import { Observable } from 'rxjs/Observable';
-import { RecipeModel } from './models/recipe.model';
+import { RecipeModel } from '../models/recipe.model';
 
 @Injectable()
 export class RecipeService {

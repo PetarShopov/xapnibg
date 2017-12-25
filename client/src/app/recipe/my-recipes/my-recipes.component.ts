@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router'
 
 import { RecipeService } from '../recipe.service';
-import { RecipeModel } from '../models/recipe.model'
+import { RecipeModel } from '../../models/recipe.model'
 
 @Component({
   selector: 'app-my-recipes',

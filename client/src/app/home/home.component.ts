@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/finally';
 
-import { RecipeService } from '../recipe.service';
+import { RecipeService } from '../recipe/recipe.service';
 import { RecipeModel } from '../models/recipe.model';
 
 @Component({

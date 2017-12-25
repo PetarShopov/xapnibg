@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { RecipeService } from '../recipe.service'
-import { RecipeModel } from '../models/recipe.model';
+import { RecipeModel } from '../../models/recipe.model';
 
 @Component({
   selector: 'app-add-recipe',
@@ -12,7 +12,6 @@ import { RecipeModel } from '../models/recipe.model';
 })
 export class AddRecipeComponent implements OnInit {
   model = new RecipeModel(null, '', '', [], '');
-  submitted = false;
 
   constructor(
     private recipeService: RecipeService,
@@ -20,12 +19,10 @@ export class AddRecipeComponent implements OnInit {
   ) { }
 
   onSubmit() {
-    // this.submitted = true;
     this.recipeService.addRecipe(this.model)
-    .subscribe(result => {
-      this.submitted = true;
-      this.router.navigateByUrl(`/recipes/my-recipes`)
-    });;
+      .subscribe(result => {
+        this.router.navigateByUrl(`/recipes/my-recipes`)
+      });;
   }
   get diagnostic() { return JSON.stringify(this.model); }
 

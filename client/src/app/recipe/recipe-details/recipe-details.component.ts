@@ -2,8 +2,8 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import {RecipeService} from '../recipe.service'
-import {RecipeModel} from '../models/recipe.model'
+import { RecipeService } from '../recipe.service'
+import { RecipeModel } from '../../models/recipe.model'
 
 @Component({
   selector: 'app-recipe-details',
@@ -18,7 +18,7 @@ export class RecipeDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private recipeService: RecipeService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getRecipe();
