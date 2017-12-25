@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyRecipesComponent } from '../recipe/my-recipes/my-recipes.component';
 import { AddRecipeComponent } from '../recipe/add-recipe/add-recipe.component';
 import { RecipeDetailsComponent } from '../recipe/recipe-details/recipe-details.component';
+import { SaladRecipesComponent } from '../recipe/salad-recipes/salad-recipes.component';
  
 const recipeRoutes: Routes = [
     { path: 'recipes/my-recipes', component: MyRecipesComponent },
     { path: 'recipes/add-recipe', component: AddRecipeComponent },
+    { path: 'recipes/salad-recipes', component: SaladRecipesComponent },
     { path: 'recipes/:id', component: RecipeDetailsComponent },
 ];
  

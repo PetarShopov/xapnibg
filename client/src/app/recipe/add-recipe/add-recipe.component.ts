@@ -11,7 +11,7 @@ import { RecipeModel } from '../../models/recipe.model';
   encapsulation: ViewEncapsulation.None
 })
 export class AddRecipeComponent implements OnInit {
-  model = new RecipeModel(null, '', '', [], '');
+  model = new RecipeModel(null, '', '', [], '', '');
 
   constructor(
     private recipeService: RecipeService,

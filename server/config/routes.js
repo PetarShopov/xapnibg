@@ -46,6 +46,7 @@ module.exports = (app) => {
         preparation: recipeReq.preparation || 'No Preparation',
         ingredients: recipeReq.ingredients || ['No Ingredients'],
         image: recipeReq.image || 'No Image',
+        type: recipeReq.type || 'No Type',
         author: recipeReq.author,
         timestamp: +Date.now()
       })

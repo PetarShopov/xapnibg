@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { SaladRecipesComponent } from './salad-recipes/salad-recipes.component'
 import { RecipeService } from './recipe.service'
 import { CensoreTextPipe } from '../censore-text.pipe'
 import { RecipeRoutingModule } from './recipe-routes.module'
@@ -19,6 +20,7 @@ import { RecipeRoutingModule } from './recipe-routes.module'
     AddRecipeComponent,
     MyRecipesComponent,
     RecipeDetailsComponent,
+    SaladRecipesComponent,
     CensoreTextPipe
   ],
   providers: [RecipeService]

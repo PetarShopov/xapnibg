@@ -3,39 +3,32 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router'
 
 import { RecipeService } from '../recipe.service';
-import { RecipeModel } from '../../models/recipe.model'
-import { AuthService } from '../../core/auth.service';
+import { RecipeModel } from '../../models/recipe.model';
 
 @Component({
-  selector: 'app-my-recipes',
-  templateUrl: './my-recipes.component.html',
-  styleUrls: ['./my-recipes.component.css'],
+  selector: 'salad-recipes',
+  templateUrl: './salad-recipes.component.html',
+  styleUrls: ['./salad-recipes.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class MyRecipesComponent implements OnInit {
+export class SaladRecipesComponent implements OnInit {
   recipes: Observable<RecipeModel[]>;
   isLoading = false;
 
   constructor(
     private router: Router,
-    private recipeService: RecipeService,
-    private authService: AuthService
+    private recipeService: RecipeService
   ) { }
 
   ngOnInit() {
     this.getRecipes();
   }
 
-  openAddRecipe() {
-    this.router.navigateByUrl('/recipes/add-recipe')
-  }
-
   getRecipes() {
     this.isLoading = true;
     this.recipeService.getRecipes().subscribe(data => {
-      let currentUser = this.authService.getUser();
       this.recipes = data.recipes.filter(function(item){
-        return item.author === currentUser;
+        return item.type === 'salad';
       });
       this.isLoading = false;
     })
