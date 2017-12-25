@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthService } from './core/auth.service'
+import { DialogService } from './dialog.service';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { AuthService } from './core/auth.service'
     RecipeModule,
     RoutesModule
   ],
-  providers: [],
+  providers: [
+    DialogService,
+    CanDeactivateGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

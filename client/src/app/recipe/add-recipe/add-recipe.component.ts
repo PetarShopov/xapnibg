@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
+import { Observable } from 'rxjs/Observable';
 
 import { RecipeService } from '../recipe.service'
 import { RecipeModel } from '../../models/recipe.model';
+import { DialogService }  from '../../dialog.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -15,6 +17,7 @@ export class AddRecipeComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
+    private dialogService: DialogService,
     private router: Router
   ) { }
 
@@ -27,6 +30,13 @@ export class AddRecipeComponent implements OnInit {
   get diagnostic() { return JSON.stringify(this.model); }
 
   ngOnInit() {
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.model.title) {
+      return true;
+    }
+    return this.dialogService.confirm('Discard changes?');
   }
 
 }
