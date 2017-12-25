@@ -26,12 +26,12 @@ import { AuthService } from './core/auth.service'
     AlertModule.forRoot(),
     CoreModule,
     HttpModule,
-    RoutesModule,
     BrowserModule,
     FormsModule,
     UsersModule,
     BeverageModule,
-    RecipeModule
+    RecipeModule,
+    RoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
