@@ -4,7 +4,7 @@
       <a *ngFor="let beverage of beverages">
         <figure class="col-sm-4">
           <img id="beverageImage" src={{beverage.image}} alt="No Image">
-          <div id="beverageTitle">{{beverage.name}}</div>
+          <div [appHighlight]="'green'" defaultColor="orange" id="beverageTitle">{{beverage.name}}</div>
         </figure>
       </a>
     </div>

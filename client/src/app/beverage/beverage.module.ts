@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AllBeveragesComponent } from './all-beverages/all-beverages.component';
 import { AddBeverageComponent } from './add-beverage/add-beverage.component';
 import { BeverageService } from './beverage.service'
+import { HighlightDirective } from '../directives/highlight.directive';
 
 @NgModule({
   imports: [
@@ -13,7 +14,11 @@ import { BeverageService } from './beverage.service'
     ReactiveFormsModule,
     FormsModule
   ],
-  declarations: [AllBeveragesComponent, AddBeverageComponent],
+  declarations: [
+    AllBeveragesComponent, 
+    AddBeverageComponent,
+    HighlightDirective
+  ],
   providers: [BeverageService]
 })
 export class BeverageModule { }
