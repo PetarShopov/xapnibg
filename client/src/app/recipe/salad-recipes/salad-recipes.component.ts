@@ -26,7 +26,7 @@ export class SaladRecipesComponent implements OnInit {
 
   getRecipes() {
     this.isLoading = true;
-    this.recipeService.getRecipes(1, 'no-owner').subscribe(data => {
+    this.recipeService.getRecipes(1, 'no-owner', 'salad').subscribe(data => {
       this.recipes = data.recipes.filter(function(item){
         return item.type === 'salad';
       });

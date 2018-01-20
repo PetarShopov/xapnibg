@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   getRecipes(page) {
     this.isLoading = true;
-    this.recipeService.getRecipes(page, 'no-owner').subscribe(data => {
+    this.recipeService.getRecipes(page, 'no-owner','no-type').subscribe(data => {
       this.recipes = data.recipes;
       this.isLoading = false;
     })
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
     this.page = this.page - 1
 
-    this.recipeService.getRecipes(this.page, 'no-owner').subscribe(data => {
+    this.recipeService.getRecipes(this.page, 'no-owner','no-type').subscribe(data => {
       this.recipes = data.recipes;
       this.isLoading = false;
     })
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.page = this.page + 1
-    this.recipeService.getRecipes(this.page, 'no-owner').subscribe(data => {
+    this.recipeService.getRecipes(this.page, 'no-owner','no-type').subscribe(data => {
       this.recipes = data.recipes;
       this.isLoading = false;
     })

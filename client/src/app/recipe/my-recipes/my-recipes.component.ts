@@ -47,7 +47,7 @@ export class MyRecipesComponent implements OnInit {
     this.isLoading = true;
     let currentUser = this.authService.getUser();
     let a = 1;
-    this.recipeService.getRecipes(page, currentUser).subscribe(data => {
+    this.recipeService.getRecipes(page, currentUser, 'no-type').subscribe(data => {
       this.recipes = data.recipes;
       this.isLoading = false;
     })

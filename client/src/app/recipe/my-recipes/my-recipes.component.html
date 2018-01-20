@@ -1,7 +1,7 @@
 <div id="myRecipesWrapper">
   <input id="addRecipeBtn" type="button" class="btn btn-default" value="Добави рецепта" (click)="openAddRecipe()">
 
-  <div id="myRecipesContainer">
+  <div class="col-sm-12" id="myRecipesContainer">
     <div *ngIf="recipes.length === 0">No more recipes availble!</div>
     <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">
       <figure class="col-sm-4">

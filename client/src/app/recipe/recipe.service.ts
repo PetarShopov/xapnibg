@@ -12,11 +12,14 @@ export class RecipeService {
     private authService: AuthService
   ) { }
 
-  getRecipes(page, owner): any {
+  getRecipes(page, owner, selectedType): any {
     var url = `recipes/all?page=${page}`;
     if (owner !== 'no-owner') {
       url = `recipes/my-recipes/all?page=${page}&owner=${owner}`;
     }
+    if (selectedType !== 'no-type') {
+      url = `recipes/all?page=${page}&selectedType=${selectedType}`;
+    } 
     
     return this.httpService.get(url);
   }

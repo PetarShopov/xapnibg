@@ -9,6 +9,7 @@ const passport = require('passport')
 module.exports = (app) => {
   app.get('/recipes/all', (req, res) => {
     const page = parseInt(req.query.page) || 1
+    const selectedType = req.query.selectedType
     const pageSize = 6
 
     let startIndex = (page - 1) * pageSize
@@ -16,6 +17,11 @@ module.exports = (app) => {
 
     Recipe.find({})
       .then(recipes => {
+        if(selectedType){
+          recipes = recipes.filter(function(item){
+            return item.type === selectedType;
+          })
+        }
         recipes = recipes.slice(startIndex, endIndex)
         res.status(200).json({ recipes })
       })

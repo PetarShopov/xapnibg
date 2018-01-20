@@ -1,5 +1,5 @@
 #myRecipesWrapper {
-    margin-top: 100px;
+    margin: 100px 50px;
     text-align: center;
 }
 #recipeImage {
@@ -12,9 +12,6 @@
 }
 #addRecipeBtn {
     margin-bottom: 10px;
-}
-#myRecipesContainer {
-    display: inline-block
 }
 #myRecipesContainer > a {
     margin-bottom: 20px;
