@@ -5,7 +5,8 @@ import { AuthService } from './auth.service'
 
 import 'rxjs/add/operator/map'
 
-const baseUrl = 'http://localhost:1337/'
+const baseUrl = 'https://xapnibg-server.herokuapp.com/'
+// const baseUrl = 'http://localhost:1337/'
 const getMethod = 'get';
 const postMethod = 'post';
 

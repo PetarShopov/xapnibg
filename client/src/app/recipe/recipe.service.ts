@@ -12,8 +12,13 @@ export class RecipeService {
     private authService: AuthService
   ) { }
 
-  getRecipes(): any {
-    return this.httpService.get('recipes/all');
+  getRecipes(page, owner): any {
+    var url = `recipes/all?page=${page}`;
+    if (owner !== 'no-owner') {
+      url = `recipes/my-recipes/all?page=${page}&owner=${owner}`;
+    }
+    
+    return this.httpService.get(url);
   }
 
   addRecipe(recipe): any {

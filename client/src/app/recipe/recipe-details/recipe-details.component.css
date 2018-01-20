@@ -1,7 +1,25 @@
 #recipeDetailsWrapper {
-    margin-top: 100px;
+    margin-top: 70px;
     text-align: center;
 }
 recipeDetailsWrapper > img {
     width: 40%;
+}
+#backBtn {
+    font-size: 300%;
+    color: orange;
+}
+#backBtn:hover {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+.capture {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+.mainCapture {
+    font-size: 20px;
+    margin-bottom: 5px;
 }

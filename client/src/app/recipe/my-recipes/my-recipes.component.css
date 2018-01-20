@@ -10,6 +10,12 @@
     font-size: medium;
     margin: 10px 0px;
 }
+#addRecipeBtn {
+    margin-bottom: 10px;
+}
+#myRecipesContainer {
+    display: inline-block
+}
 #myRecipesContainer > a {
     margin-bottom: 20px;
 }

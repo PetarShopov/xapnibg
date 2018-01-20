@@ -1,7 +1,7 @@
 <div id="recipeDetailsWrapper" *ngIf="recipe">
-  <button class="btn btn-default" (click)="goBack()">go back</button>
+  <span id="backBtn" class="glyphicon glyphicon-circle-arrow-left" (click)="goBack()"></span>
   <div>
-    <div id="recipeTitle">{{recipe.title}}</div>
+    <div class="mainCapture" id="recipeTitle">{{recipe.title}}</div>
     <div>
       <img src={{recipe.image}} alt="No Image">
     </div>
@@ -9,11 +9,14 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-2">
-      <div>Съставки:</div>
+      <div class="capture">Съставки:</div>
       <div *ngFor="let ingredient of recipe.ingredients">
         {{ingredient}}
       </div>
     </div>
-    <div class="col-sm-4">{{recipe.preparation | censoreText : 'рулце'}}</div>
+    <div class="col-sm-4">
+      <div class="capture">Начин на приготвяне:</div>
+      {{recipe.preparation | censoreText : 'рулце'}}
+    </div>
   </div>
 </div>

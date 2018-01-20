@@ -9,7 +9,7 @@ import { RecipeDetailsComponent } from '../recipe/recipe-details/recipe-details.
 import { SaladRecipesComponent } from '../recipe/salad-recipes/salad-recipes.component';
  
 const recipeRoutes: Routes = [
-    { path: 'recipes/my-recipes', component: MyRecipesComponent , canActivate: [PrivateRoute]},
+    { path: 'recipes/my-recipes/all', component: MyRecipesComponent , canActivate: [PrivateRoute]},
     { path: 'recipes/add-recipe', component: AddRecipeComponent , canDeactivate: [CanDeactivateGuard]},
     { path: 'recipes/salad-recipes', component: SaladRecipesComponent },
     { path: 'recipes/:id', component: RecipeDetailsComponent },

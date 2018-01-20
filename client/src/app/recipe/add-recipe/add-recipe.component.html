@@ -28,7 +28,7 @@
       <label for="type">Категория</label>
       <select class="form-control" id="type" name="type" [(ngModel)]="model.type">
         <option *ngFor="let token of [{'type': 'salad', 'name': 'Салата'},{'type': 'starter', 'name': 'Предястие'},
-        {'type': 'main', 'name': 'Основно ядене'},{'type': 'desert', 'name': 'Салата'}]" [value]="token.type">{{token.name}}</option>
+        {'type': 'main', 'name': 'Основно ядене'},{'type': 'desert', 'name': 'Десерт'}]" [value]="token.type">{{token.name}}</option>
       </select>
     </div>
 

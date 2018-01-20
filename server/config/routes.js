@@ -8,8 +8,15 @@ const passport = require('passport')
 
 module.exports = (app) => {
   app.get('/recipes/all', (req, res) => {
+    const page = parseInt(req.query.page) || 1
+    const pageSize = 6
+
+    let startIndex = (page - 1) * pageSize
+    let endIndex = startIndex + pageSize
+
     Recipe.find({})
       .then(recipes => {
+        recipes = recipes.slice(startIndex, endIndex)
         res.status(200).json({ recipes })
       })
       .catch(err => {
@@ -21,6 +28,31 @@ module.exports = (app) => {
       })
   })
 
+  app.get('/recipes/my-recipes/all', (req, res) => {
+    const page = parseInt(req.query.page) || 1
+    const owner = req.query.owner || ''
+    const pageSize = 6
+
+    let startIndex = (page - 1) * pageSize
+    let endIndex = startIndex + pageSize
+
+    Recipe.find({})
+      .then(recipes => {
+        recipes = recipes.filter(function(item){
+          return item.author === owner;
+        });
+        recipes = recipes.slice(startIndex, endIndex)
+        res.status(200).json({ recipes })
+      })
+      .catch(err => {
+        let message = errorHandler.handleMongooseError(err)
+        return res.status(200).json({
+          success: false,
+          message: message
+        })
+      })
+  })
+  
   app.get('/recipes/:id', (req, res) => {
     const id = req.params.id
 

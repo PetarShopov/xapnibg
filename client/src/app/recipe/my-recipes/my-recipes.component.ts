@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RecipeService } from '../recipe.service';
 import { RecipeModel } from '../../models/recipe.model'
@@ -13,17 +13,24 @@ import { AuthService } from '../../core/auth.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MyRecipesComponent implements OnInit {
-  recipes: Observable<RecipeModel[]>;
+  page: number = 1;
+  recipes: Array<object> = [];
   isLoading = false;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private recipeService: RecipeService,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.getRecipes();
+    this.route
+      .queryParams
+      .subscribe(params => {
+        this.page = +params['page'] || 1;
+        this.getRecipes(this.page);
+      })
   }
 
   openAddRecipe() {
@@ -33,17 +40,40 @@ export class MyRecipesComponent implements OnInit {
   deleteRecipe(id) {
     this.recipeService.deleteRecipe(id).subscribe(result => {
       this.router.navigateByUrl('/recipes/my-recipes')
-  })
+    })
   }
 
-  getRecipes() {
+  getRecipes(page) {
     this.isLoading = true;
-    this.recipeService.getRecipes().subscribe(data => {
-      let currentUser = this.authService.getUser();
-      this.recipes = data.recipes.filter(function(item){
-        return item.author === currentUser;
-      });
+    let currentUser = this.authService.getUser();
+    let a = 1;
+    this.recipeService.getRecipes(page, currentUser).subscribe(data => {
+      this.recipes = data.recipes;
       this.isLoading = false;
     })
+  }
+
+  prevPage() {
+    if (this.page === 1) {
+      return;
+    }
+
+    const url = this.getUrl(this.page - 1)
+    this.router.navigateByUrl(url)
+  }
+
+  nextPage() {
+    if (this.recipes.length === 0 || this.recipes.length < 6) {
+      return;
+    }
+
+    const url = this.getUrl(this.page + 1)
+    this.router.navigateByUrl(url)
+  }
+
+  private getUrl(page) {
+    let currentUser = this.authService.getUser();
+    let url = `recipes/my-recipes/all?page=${page}&owner=${currentUser}`;
+    return url;
   }
 }

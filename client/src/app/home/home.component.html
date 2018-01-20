@@ -1,10 +1,15 @@
-<div id="homeWrapper">  
-    <div id="homeContainer">
-      <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">
-        <figure class="col-sm-4">
-          <img id="recipeImage" src={{recipe.image}} alt="No Image">
-          <div id="recipeTitle">{{recipe.title}}</div>
-        </figure>
-      </a>
-    </div>
+<div id="homeWrapper">
+  <div id="homeContainer">
+    <div *ngIf="recipes.length === 0">No more recipes availble!</div>
+    <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">
+      <figure class="col-sm-4">
+        <img id="recipeImage" src={{recipe.image}} alt="No Image">
+        <div id="recipeTitle">{{recipe.title}}</div>
+      </figure>
+    </a>
+    <div>
+        <button class="btn btn-default" [disabled]="page === 1" (click)="prevPage()">Prev</button>
+        <button class="btn btn-default" [disabled]="recipes.length === 0 || recipes.length < 6" (click)="nextPage()">Next</button>
+      </div>
   </div>
+</div>
