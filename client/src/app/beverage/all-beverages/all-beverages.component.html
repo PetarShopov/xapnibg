@@ -1,10 +1,11 @@
 <div id="allBeveragesWrapper">
-  <input type="button" class="btn btn-default" value="Добави напитка" (click)="openAddBeverage()">
-  <div id="beverageContainer">
+  <input id="addBeverageBtn" type="button" class="btn btn-default" value="Добави напитка" (click)="openAddBeverage()">
+  <div class="col-sm-12" id="beverageContainer">
+      <div *ngIf="beverages.length === 0">No beverages availble!</div>
       <a *ngFor="let beverage of beverages">
         <figure class="col-sm-4">
           <img id="beverageImage" src={{beverage.image}} alt="No Image">
-          <div [appHighlight]="'green'" defaultColor="orange" id="beverageTitle">{{beverage.name}}</div>
+          <div [appHighlight]="'green'" defaultColor="orange" id="beverageTitle">{{beverage.name | uppercase}}</div>
         </figure>
       </a>
     </div>

@@ -11,7 +11,7 @@ import { BeverageModel } from '../../models/beverage.model'
   encapsulation: ViewEncapsulation.None
 })
 export class AllBeveragesComponent implements OnInit {
-  beverages: Observable<BeverageModel[]>;
+  beverages: Array<object> = [];
 
   constructor(
     private router: Router,

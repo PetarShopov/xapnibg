@@ -1,0 +1,10 @@
+<div id="desertRecipesWrapper">
+    <div id="desertRecipesContainer">
+        <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">
+            <figure class="col-sm-4">
+                <img id="recipeImage" src={{recipe.image}} alt="No Image">
+                <div id="recipeTitle">{{recipe.title}}</div>
+            </figure>
+        </a>
+    </div>
+</div>

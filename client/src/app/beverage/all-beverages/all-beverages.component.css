@@ -1,9 +1,13 @@
 #allBeveragesWrapper {
-    margin-top: 100px;
+    margin: 100px 50px;
     text-align: center;
 }
 
 #beverageImage {
-    width: 60%;
+    width: 90%;
     margin-left: 2%;
+}
+
+#addBeverageBtn {
+    margin-bottom: 10px;
 }
