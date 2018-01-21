@@ -6,7 +6,7 @@ import { UsersService } from './users.service'
 
 import { RegisterComponent } from './register.component'
 import { LoginComponent } from './login.component'
-import { ProfileComponent } from './profile.component'
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
     imports: [

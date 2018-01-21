@@ -6,13 +6,13 @@ let rootPath = path.normalize(path.join(__dirname, '/../../'))
 module.exports = {
   development: {
     rootPath: rootPath,
-    db: 'mongodb://petar:123456@ds251807.mlab.com:51807/xapnibg',
+    db: '',
     port: 1337
   },
   staging: {
   },
   production: {
-    db: 'mongodb://petar:123456@ds251807.mlab.com:51807/xapnibg',
+    db: '',
     port: process.env.PORT
   }
 }
