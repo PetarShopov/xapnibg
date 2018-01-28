@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-import { RegisterComponent } from './users/register.component'
-import { LoginComponent } from './users/login.component'
+import { RegisterComponent } from './users/register/register.component'
+import { LoginComponent } from './users/login/login.component'
 import { ProfileComponent } from './users/profile/profile.component'
 import { PrivateRoute } from './core/private-route'
 import { HomeComponent } from './home/home.component'
@@ -12,7 +12,7 @@ import { AddBeverageComponent } from './beverage/add-beverage/add-beverage.compo
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'users/register', component: RegisterComponent },
-    { path: 'users/register', component: RegisterComponent },
+    { path: 'users/login', component: LoginComponent },
     { path: 'users/profile', component: ProfileComponent },   
     { path: 'beverages/all', component: AllBeveragesComponent },
     { path: 'beverages/add-beverage', component: AddBeverageComponent },

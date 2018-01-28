@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
-import { AuthService } from '../core/auth.service'
+import { AuthService } from '../../core/auth.service'
 
-import { UsersService } from './users.service'
-import { LoginUserModel } from './login-user.model'
+import { UsersService } from '../users.service'
+import { LoginUserModel } from '../models/login-user.model'
 
 @Component({
     selector: 'login',
