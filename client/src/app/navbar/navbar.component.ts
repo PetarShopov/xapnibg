@@ -7,7 +7,7 @@ import { UsersService } from '../users//users.service'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class NavbarComponent implements OnInit, OnChanges {

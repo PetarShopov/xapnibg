@@ -1,0 +1,26 @@
+$margin-bottom: 20px;
+
+#homeWrapper {
+	margin: 100px 50px;
+	text-align: center;  
+
+	#homeContainer {
+		#recipeImage {
+			width: 90%;
+			margin-left: 2%;
+		}
+
+		#recipeTitle {
+			font-size: medium;
+			margin: 10px 0px;
+		}
+
+		a {
+			margin-bottom: $margin-bottom;
+		}
+
+		figure {
+			margin-bottom: $margin-bottom;
+		}
+	}
+}

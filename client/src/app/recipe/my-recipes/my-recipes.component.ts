@@ -9,7 +9,7 @@ import { AuthService } from '../../core/auth.service';
 @Component({
   selector: 'app-my-recipes',
   templateUrl: './my-recipes.component.html',
-  styleUrls: ['./my-recipes.component.css'],
+  styleUrls: ['./my-recipes.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class MyRecipesComponent implements OnInit {

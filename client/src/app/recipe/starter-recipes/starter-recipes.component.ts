@@ -8,7 +8,7 @@ import { RecipeModel } from '../../models/recipe.model';
 @Component({
   selector: 'starter-recipes',
   templateUrl: './starter-recipes.component.html',
-  styleUrls: ['./starter-recipes.component.css'],
+  styleUrls: ['./starter-recipes.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class StarterRecipesComponent implements OnInit {

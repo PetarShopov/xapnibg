@@ -7,7 +7,7 @@ import { BeverageService } from '../beverage.service'
 @Component({
   selector: 'app-add-beverage',
   templateUrl: './add-beverage.component.html',
-  styleUrls: ['./add-beverage.component.css'],
+  styleUrls: ['./add-beverage.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AddBeverageComponent implements OnInit {

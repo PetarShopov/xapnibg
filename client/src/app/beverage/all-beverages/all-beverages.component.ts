@@ -7,7 +7,7 @@ import { BeverageModel } from '../../models/beverage.model'
 @Component({
   selector: 'app-all-beverages',
   templateUrl: './all-beverages.component.html',
-  styleUrls: ['./all-beverages.component.css'],
+  styleUrls: ['./all-beverages.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AllBeveragesComponent implements OnInit {

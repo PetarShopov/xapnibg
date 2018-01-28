@@ -8,7 +8,7 @@ import { RecipeModel } from '../../models/recipe.model';
 @Component({
   selector: 'desert-recipes',
   templateUrl: './desert-recipes.component.html',
-  styleUrls: ['./desert-recipes.component.css'],
+  styleUrls: ['./desert-recipes.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class DesertRecipesComponent implements OnInit {

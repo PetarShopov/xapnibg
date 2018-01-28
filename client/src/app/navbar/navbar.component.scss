@@ -1,0 +1,100 @@
+$theme-color: orange;
+/* navbar */
+.navbar-default {
+    background: #fff;
+    min-height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+    box-shadow: 0 0 30px #aaa;
+    -moz-box-shadow: 0 0 30px #aaa;
+    -webkit-box-shadow: 0 0 30px #aaa;
+    cursor: auto;
+    
+    /* Title */
+    .navbar-brand {
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+        &:hover,
+        &:focus {
+            border-bottom: 5px solid $theme-color;
+        }
+    }
+
+    /* Link */
+    .navbar-nav { 
+        li > a {
+            color: black;
+            &:hover,
+            &:focus {
+                border-bottom: 5px solid $theme-color;
+                padding-bottom: 10px;
+            }
+        }
+
+        .dropdown-menu > li > a {
+            border-bottom: 0px;
+            padding-bottom: 0px;
+        }
+        
+        .active > a,
+        .active > a:hover,
+        .active > a:focus {
+            color: #555;
+            background-color: #E7E7E7;
+        }
+
+        .open > a,
+        .open > a:hover,
+        .open > a:focus {
+            color: #555;
+            background-color: #D5D5D5;
+        }
+
+        /* Caret */
+        .dropdown > a {
+            .caret {
+                border-top-color: #777;
+                border-bottom-color: #777;
+            }
+            &:hover .caret,
+            &:focus .caret {
+                border-top-color: #333;
+                border-bottom-color: #333;
+            }
+        }
+
+        .open > a .caret,
+        .open > a:hover .caret,
+        .open > a:focus .caret {
+            border-top-color: #555;
+            border-bottom-color: #555;
+        }
+    }
+
+    /* Mobile version */
+    .navbar-toggle {
+        border-color: #DDD;
+    }
+
+    .navbar-toggle:hover,
+    .navbar-toggle:focus {
+        background-color: #DDD;
+    }
+
+    .navbar-toggle .icon-bar {
+        background-color: #CCC;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+        &:hover,
+        &:focus {
+            color: #333;
+        }
+    }    
+}

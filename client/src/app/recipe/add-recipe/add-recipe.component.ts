@@ -9,7 +9,7 @@ import { DialogService }  from '../../dialog.service';
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
-  styleUrls: ['./add-recipe.component.css'],
+  styleUrls: ['./add-recipe.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AddRecipeComponent implements OnInit {

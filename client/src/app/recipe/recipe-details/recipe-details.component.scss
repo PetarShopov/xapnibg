@@ -1,24 +1,27 @@
 #recipeDetailsWrapper {
     margin-top: 70px;
     text-align: center;
+    & > img {
+        width: 40%;
+    }
 }
-recipeDetailsWrapper > img {
-    width: 40%;
-}
+
 #backBtn {
     font-size: 300%;
     color: orange;
+    &:hover {
+        display: inline-block;
+        transform: rotate(90deg);
+    }
 }
-#backBtn:hover {
-    display: inline-block;
-    transform: rotate(90deg);
-}
+
 .capture {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 5px;
     text-decoration: underline;
 }
+
 .mainCapture {
     font-size: 20px;
     margin-bottom: 5px;

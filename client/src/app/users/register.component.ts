@@ -7,7 +7,7 @@ import { RegisterUserModel } from './register-user.model'
 @Component({
     selector: 'register',
     templateUrl: '/register.component.html',
-    styleUrls: ['./register.component.css']
+    styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
     user: RegisterUserModel = new RegisterUserModel();
