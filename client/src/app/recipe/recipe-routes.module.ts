@@ -5,6 +5,7 @@ import { PrivateRoute } from '../core/private-route';
 import { CanDeactivateGuard } from '../can-deactivate-guard.service';
 import { MyRecipesComponent } from '../recipe/my-recipes/my-recipes.component';
 import { AddRecipeComponent } from '../recipe/add-recipe/add-recipe.component';
+import { EditRecipeComponent } from '../recipe/edit-recipe/edit-recipe.component';
 import { RecipeDetailsComponent } from '../recipe/recipe-details/recipe-details.component';
 import { SaladRecipesComponent } from '../recipe/salad-recipes/salad-recipes.component';
 import { StarterRecipesComponent } from '../recipe/starter-recipes/starter-recipes.component';
@@ -14,6 +15,7 @@ import { DesertRecipesComponent } from '../recipe/desert-recipes/desert-recipes.
 const recipeRoutes: Routes = [
     { path: 'recipes/my-recipes/all', component: MyRecipesComponent , canActivate: [PrivateRoute]},
     { path: 'recipes/add-recipe', component: AddRecipeComponent , canDeactivate: [CanDeactivateGuard]},
+    { path: 'recipes/edit-recipe/:id', component: EditRecipeComponent , canActivate: [PrivateRoute]},
     { path: 'recipes/salad-recipes', component: SaladRecipesComponent },
     { path: 'recipes/starter-recipes', component: StarterRecipesComponent },
     { path: 'recipes/main-recipes', component: MainRecipesComponent },

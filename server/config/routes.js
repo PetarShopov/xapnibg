@@ -17,8 +17,8 @@ module.exports = (app) => {
 
     Recipe.find({})
       .then(recipes => {
-        if(selectedType){
-          recipes = recipes.filter(function(item){
+        if (selectedType) {
+          recipes = recipes.filter(function (item) {
             return item.type === selectedType;
           })
         }
@@ -44,7 +44,7 @@ module.exports = (app) => {
 
     Recipe.find({})
       .then(recipes => {
-        recipes = recipes.filter(function(item){
+        recipes = recipes.filter(function (item) {
           return item.author === owner;
         });
         recipes = recipes.slice(startIndex, endIndex)
@@ -58,7 +58,7 @@ module.exports = (app) => {
         })
       })
   })
-  
+
   app.get('/recipes/:id', (req, res) => {
     const id = req.params.id
 
@@ -66,6 +66,32 @@ module.exports = (app) => {
       .then(recipe => {
         res.status(200).json(recipe)
       })
+      .catch(err => {
+        let message = errorHandler.handleMongooseError(err)
+        return res.status(200).json({
+          success: false,
+          message: message
+        })
+      })
+  })
+
+  app.post('/recipes/edit', (req, res) => {
+    let recipeReq = req.body;
+
+    Recipe.update(
+      {_id: recipeReq._id},
+      {
+        title: recipeReq.title || 'No Title',
+        preparation: recipeReq.preparation || 'No Preparation',
+        ingredients: recipeReq.ingredients || ['No Ingredients'],
+        image: recipeReq.image || 'No Image',
+        type: recipeReq.type || 'No Type',
+        author: recipeReq.author,
+        timestamp: +Date.now()
+      }
+    ).then(recipe => {
+      res.status(200).json(recipe)
+    })
       .catch(err => {
         let message = errorHandler.handleMongooseError(err)
         return res.status(200).json({

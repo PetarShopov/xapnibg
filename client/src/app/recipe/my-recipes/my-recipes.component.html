@@ -3,7 +3,7 @@
 
   <div class="col-sm-12" id="myRecipesContainer">
     <div *ngIf="recipes.length === 0">No more recipes availble!</div>
-    <a *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe._id}}">
+    <a *ngFor="let recipe of recipes" routerLink="/recipes/edit-recipe/{{recipe._id}}">
       <figure class="col-sm-4">
         <img id="recipeImage" src={{recipe.image}} alt="No Image">
         <div id="recipeTitle">{{recipe.title  | uppercase}}</div>

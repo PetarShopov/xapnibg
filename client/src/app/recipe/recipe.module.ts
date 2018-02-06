@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { SaladRecipesComponent } from './salad-recipes/salad-recipes.component';
@@ -21,6 +22,7 @@ import { RecipeRoutingModule } from './recipe-routes.module';
   ],
   declarations: [
     AddRecipeComponent,
+    EditRecipeComponent,
     MyRecipesComponent,
     RecipeDetailsComponent,
     SaladRecipesComponent,

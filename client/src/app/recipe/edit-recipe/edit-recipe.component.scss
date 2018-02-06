@@ -1,0 +1,22 @@
+#editRecipeWrapper {
+    margin-top: 70px;
+    margin-left: 33%;
+}
+
+#title {
+    text-align: center;
+    font-size: large;
+}
+
+.alert {
+    padding: 10px;
+}
+
+#backBtn {
+    font-size: 250%;
+    color: orange;
+    &:hover {
+        display: inline-block;
+        transform: rotate(90deg);
+    }
+}

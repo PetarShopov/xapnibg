@@ -30,6 +30,13 @@ export class RecipeService {
     return this.httpService.post('recipes/add', recipe);
   }
 
+  editRecipe(recipe): any {
+    if (!Array.isArray(recipe.ingredients)) {
+      recipe.ingredients = recipe.ingredients.split(',').map(item => item.trim());
+    }
+    return this.httpService.post('recipes/edit', recipe);
+  }
+
   deleteRecipe(id): any {
     return this.httpService.post(`recipes/delete/${id}`, {});
   }
