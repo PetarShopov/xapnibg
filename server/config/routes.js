@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Recipe = mongoose.model('Recipe')
 const Beverage = mongoose.model('Beverage')
+const Response = mongoose.model('Response')
 const User = mongoose.model('User')
 const errorHandler = require('../utilities/error-handler')
 const passport = require('passport')
@@ -196,6 +197,33 @@ module.exports = (app) => {
 					})
 				})
 		})(req, res)
+	})
+
+	app.post('/contacts/response', (req, res) => {
+		let responseReq = req.body;
+
+		Response
+			.create({
+				name: responseReq.name || 'No Name',
+				email: responseReq.email || 'No Email',
+				subject: responseReq.subject || 'No Subject',
+				message: responseReq.message || 'No Message',
+				timestamp: +Date.now()
+			})
+			.then(response => {
+				res.status(200).json({
+					success: true,
+					message: 'Response added successfully.',
+					response
+				})
+			})
+			.catch(err => {
+				let message = errorHandler.handleMongooseError(err)
+				return res.status(200).json({
+					success: false,
+					message: message
+				})
+			})
 	})
 
 	app.post('/users/register', (req, res) => {

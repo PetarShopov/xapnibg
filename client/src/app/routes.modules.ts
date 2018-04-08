@@ -8,6 +8,7 @@ import { PrivateRoute } from './core/private-route'
 import { HomeComponent } from './home/home.component'
 import { AllBeveragesComponent } from './beverage/all-beverages/all-beverages.component'
 import { AddBeverageComponent } from './beverage/add-beverage/add-beverage.component'
+import { ContactsComponent } from './contacts/contacts.component'
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'users/profile', component: ProfileComponent },   
     { path: 'beverages/all', component: AllBeveragesComponent },
     { path: 'beverages/add-beverage', component: AddBeverageComponent },
+    { path: 'contacts', component: ContactsComponent },
     { path: '**', component: HomeComponent }
 ];
 

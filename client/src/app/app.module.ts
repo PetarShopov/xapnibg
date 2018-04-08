@@ -13,16 +13,19 @@ import { RoutesModule } from './routes.modules';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 import { AuthService } from './core/auth.service'
 import { DialogService } from './dialog.service';
+import { ContactsService } from './contacts/contacts.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ContactsComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -37,7 +40,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
   ],
   providers: [
     DialogService,
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    ContactsService
   ],
   bootstrap: [AppComponent]
 })

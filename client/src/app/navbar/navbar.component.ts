@@ -24,7 +24,8 @@ export class NavbarComponent implements OnInit, OnChanges {
     this.userService.auth().subscribe(
       value => {
         if (value) {
-          this.authenticated = true
+          this.authenticated = true;
+          this.username = this.authService.getUser();
         }
       }
     );

@@ -1,0 +1,29 @@
+<div id="contactsWrapper" class="col-sm-4">
+    <div id="title">Връзка с нас</div>
+    <form (ngSubmit)="onSubmit()" #contactsForm="ngForm">
+      <div class="form-group">
+        <label for="name">Име</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Имейл</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="model.email" name="email">
+      </div>
+  
+      <div class="form-group">
+        <label for="subject">Причина</label>
+        <input type="text" class="form-control" id="subject" [(ngModel)]="model.subject" name="subject">
+      </div>
+  
+      <div class="form-group">
+        <label for="message">Съобщение</label>
+        <input type="text" class="form-control" id="message" [(ngModel)]="model.message" name="message">
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!contactsForm.form.valid">Потвърди</button>
+    </form>
+  </div>
