@@ -39,7 +39,7 @@ export class MyRecipesComponent implements OnInit {
 
   deleteRecipe(id) {
     this.recipeService.deleteRecipe(id).subscribe(result => {
-      this.router.navigateByUrl('/recipes/my-recipes')
+      this.router.navigateByUrl('/recipes/my-recipes/all')
     })
   }
 

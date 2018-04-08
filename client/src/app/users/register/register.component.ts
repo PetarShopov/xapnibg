@@ -2,11 +2,11 @@ import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { UsersService } from '../users.service'
-import { RegisterUserModel } from '../models//register-user.model'
+import { RegisterUserModel } from '../models/register-user.model'
 
 @Component({
     selector: 'register',
-    templateUrl: '/register.component.html',
+    templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {

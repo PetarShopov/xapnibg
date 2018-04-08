@@ -27,18 +27,18 @@ export class RecipeService {
   addRecipe(recipe): any {
     recipe.ingredients = recipe.ingredients.split(',').map(item => item.trim());
     recipe.author = this.authService.getUser();
-    return this.httpService.post('recipes/add', recipe);
+    return this.httpService.post('recipes/add', recipe, true);
   }
 
   editRecipe(recipe): any {
     if (!Array.isArray(recipe.ingredients)) {
       recipe.ingredients = recipe.ingredients.split(',').map(item => item.trim());
     }
-    return this.httpService.post('recipes/edit', recipe);
+    return this.httpService.post('recipes/edit', recipe, true);
   }
 
   deleteRecipe(id): any {
-    return this.httpService.post(`recipes/delete/${id}`, {});
+    return this.httpService.post(`recipes/delete/${id}`, {}, true);
   }
 
   getRecipeById(id): Observable<RecipeModel> {

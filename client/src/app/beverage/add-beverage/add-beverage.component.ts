@@ -33,6 +33,9 @@ export class AddBeverageComponent implements OnInit {
   ngOnInit() {
   }
 
+  revert() {
+    
+  }
 
   onSubmit() {
     const formModel = this.beverageForm.value;

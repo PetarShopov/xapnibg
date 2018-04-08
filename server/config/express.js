@@ -6,28 +6,30 @@ const session = require('express-session')
 const passport = require('passport')
 const localSignupStrategy = require('../passport/local-signup')
 const localLoginStrategy = require('../passport/local-login')
+const protectedRequestStrategy = require('../passport/protected-request')
 
 module.exports = (app) => {
-  app.use(cookieParser())
-  app.use(bodyParser.urlencoded({ extended: true }))
-  app.use(bodyParser.json())  
+	app.use(cookieParser())
+	app.use(bodyParser.urlencoded({ extended: true }))
+	app.use(bodyParser.json())
 
-  app.use(passport.initialize())
-  passport.use('local-signup', localSignupStrategy)
-  passport.use('local-login', localLoginStrategy)
+	app.use(passport.initialize())
+	passport.use('local-signup', localSignupStrategy)
+	passport.use('local-login', localLoginStrategy)
+	passport.use('protected-request', protectedRequestStrategy)
 
-  app.use(cors())
-  
-  app.use((req, res, next) => {
-    if (req.user) {
-      res.locals.currentUser = req.user
-      res.locals.isAdmin = req.user.roles.indexOf('Admin') >= 0
-    }
+	app.use(cors())
 
-    next()
-  })
+	app.use((req, res, next) => {
+		if (req.user) {
+			res.locals.currentUser = req.user
+			res.locals.isAdmin = req.user.roles.indexOf('Admin') >= 0
+		}
 
-  app.use(express.static('public'))
+		next()
+	})
 
-  console.log('Express ready!')
+	app.use(express.static('public'))
+
+	console.log('Express ready!')
 }

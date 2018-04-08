@@ -14,7 +14,7 @@ export class BeverageService {
 
   addBeverage(beverage): any {
     beverage.ingredients = beverage.ingredients.split(',').map(item => item.trim())
-    return this.httpService.post('beverages/add', beverage);
+    return this.httpService.post('beverages/add', beverage, true);
   }
 
   getBeverageById(id): Observable<BeverageModel> {
