@@ -276,6 +276,22 @@ module.exports = (app) => {
 			})
 	})
 
+	app.get('/admin', (req, res) => {
+		User.find({})
+			.then(users => {
+				res.status(200).json({
+					success: true,
+					users: users
+				})
+			})
+			.catch(err => {
+				let message = errorHandler.handleMongooseError(err)
+				return res.status(200).json({
+					success: false,
+					message: message
+				})
+			})
+	})
 
 	app.post('/users/register', (req, res) => {
 		return passport.authenticate('local-signup', (err) => {

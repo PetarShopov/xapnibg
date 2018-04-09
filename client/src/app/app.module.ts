@@ -14,10 +14,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { AuthService } from './core/auth.service'
 import { DialogService } from './dialog.service';
 import { ContactsService } from './contacts/contacts.service';
+import { AdminService } from './admin/admin.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 @NgModule({
@@ -25,7 +27,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ContactsComponent
+    ContactsComponent,
+    AdminComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -41,7 +44,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
   providers: [
     DialogService,
     CanDeactivateGuard,
-    ContactsService
+    ContactsService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,6 +12,7 @@ import { UsersService } from '../users//users.service'
 })
 export class NavbarComponent implements OnInit, OnChanges {
   authenticated: boolean = false;
+  isOwner: boolean = false;
   username: string = null;
 
   constructor(
@@ -26,12 +27,14 @@ export class NavbarComponent implements OnInit, OnChanges {
         if (value) {
           this.authenticated = true;
           this.username = this.authService.getUser();
+          this.isOwner = this.authService.getRole() === 'owner';
         }
       }
     );
     if (this.authService.isUserAuthenticated()) {
       this.authenticated = true;
       this.username = this.authService.getUser();
+      this.isOwner = this.authService.getRole() === 'owner';
     }
   }
 
@@ -39,14 +42,16 @@ export class NavbarComponent implements OnInit, OnChanges {
     if (this.authService.isUserAuthenticated()) {
       this.authenticated = true;
       this.username = this.authService.getUser();
+      this.isOwner = this.authService.getRole() === 'owner';
     }
   }
 
   logout() {
     this.authService.deauthenticateUser();
     this.authService.removeUser();
+    this.authService.removeRole();
     this.authenticated = false;
-
+    this.isOwner = this.authService.getRole() === 'owner';
     this.router.navigateByUrl('')
   }
 }

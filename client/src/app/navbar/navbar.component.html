@@ -1,63 +1,71 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/">Хапни БГ</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">Рецепти
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a routerLink="/recipes/salad-recipes">Салати</a>
-          </li>
-          <li>
-            <a routerLink="/recipes/starter-recipes">Предястия</a>
-          </li>
-          <li>
-            <a routerLink="/recipes/main-recipes">Основни Ястия</a>
-          </li>
-          <li>
-            <a routerLink="/recipes/desert-recipes">Десерти</a>
-          </li>
-          <li>
-            <a routerLink="#">Препоръчани</a>
-          </li>
-          <li *ngIf="authenticated">
-            <a routerLink="/recipes/my-recipes/all">Моите Рецепти</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a routerLink="/beverages/all">Напитки</a>
-      </li>
-      <li>
-        <a routerLink="/contacts">Контакти</a>
-      </li>
-    </ul>
-    <span *ngIf="!authenticated">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a routerLink="/users/register">
-            <span class="glyphicon glyphicon-user"></span> Регистрация</a>
-        </li>
-        <li>
-          <a routerLink="/users/login">
-            <span class="glyphicon glyphicon-log-in"></span> Вход</a>
-        </li>
-      </ul>
-    </span>
-    <span *ngIf="authenticated">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a routerLink="/users/profile">{{username}}</a>
-        </li>
-        <li>
-          <a routerLink="javascript:void(0)" (click)="logout()">
-            <span class="glyphicon glyphicon-log-out"></span> Изход</a>
-        </li>
-      </ul>
-    </span>
-  </div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" routerLink="/">Хапни БГ</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown">Рецепти
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a routerLink="/recipes/salad-recipes">Салати</a>
+					</li>
+					<li>
+						<a routerLink="/recipes/starter-recipes">Предястия</a>
+					</li>
+					<li>
+						<a routerLink="/recipes/main-recipes">Основни Ястия</a>
+					</li>
+					<li>
+						<a routerLink="/recipes/desert-recipes">Десерти</a>
+					</li>
+					<li>
+						<a routerLink="#">Препоръчани</a>
+					</li>
+					<li *ngIf="authenticated">
+						<a routerLink="/recipes/my-recipes/all">Моите Рецепти</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a routerLink="/beverages/all">Напитки</a>
+			</li>
+			<li>
+				<a routerLink="/contacts">Контакти</a>
+			</li>
+		</ul>
+		<span *ngIf="isOwner">
+			<ul class="nav navbar-nav">
+				<li>
+					<a routerLink="/admin">
+						<span class="glyphicon glyphicon-cog"></span> Администрация</a>
+				</li>
+			</ul>
+		</span>
+		<span *ngIf="!authenticated">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a routerLink="/users/register">
+						<span class="glyphicon glyphicon-user"></span> Регистрация</a>
+				</li>
+				<li>
+					<a routerLink="/users/login">
+						<span class="glyphicon glyphicon-log-in"></span> Вход</a>
+				</li>
+			</ul>
+		</span>
+		<span *ngIf="authenticated">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a routerLink="/users/profile">{{username}}</a>
+				</li>
+				<li>
+					<a routerLink="javascript:void(0)" (click)="logout()">
+						<span class="glyphicon glyphicon-log-out"></span> Изход</a>
+				</li>
+			</ul>
+		</span>
+	</div>
 </nav>

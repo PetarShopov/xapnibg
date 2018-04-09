@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../core/http.service'
 
 @Injectable()
-export class ContactsService {
+export class AdminService {
   constructor(
     private httpService: HttpService
   ) { }
 
-  sendResponse(response): any {
-    return this.httpService.post('contacts/response', response, true);
+  getUsers(): any {
+    return this.httpService.get('admin', true);
   }
 }

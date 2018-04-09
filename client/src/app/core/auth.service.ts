@@ -14,6 +14,18 @@ export class AuthService {
         window.localStorage.removeItem('user');
     }
 
+    saveRole(role) {
+        window.localStorage.setItem('role', role);
+    }
+
+    getRole() {
+        return window.localStorage.getItem('role')
+    }
+
+    removeRole() {
+        window.localStorage.removeItem('role');
+    }
+
     authenticateUser(token) {
         window.localStorage.setItem('token', token);
     }

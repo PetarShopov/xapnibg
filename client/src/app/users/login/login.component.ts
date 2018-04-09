@@ -27,6 +27,7 @@ export class LoginComponent {
                 if (user.success) {
                     this.authService.authenticateUser(user.token);
                     this.authService.saveUser(user.user.name);
+                    this.authService.saveRole(user.user.role);
                     this.userService.finishLogin();
                     
                     this.router.navigateByUrl('')
