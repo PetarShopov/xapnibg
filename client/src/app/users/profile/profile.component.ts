@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { UsersService } from '../users.service';
 
 @Component({
     selector: 'profile',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core'
     styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-    animals: Array<object> = []
+    data: {};
 
-    constructor() { }
+    constructor(
+        private usersService: UsersService
+    ) {}
 
     ngOnInit() {
+        this.getAnalyticsData();
+    }
+
+    getAnalyticsData() {
+        this.usersService.getAnalyticsData().subscribe(data => {
+            if (data.success) {
+                this.data = data;
+            }
+        })
     }
 }

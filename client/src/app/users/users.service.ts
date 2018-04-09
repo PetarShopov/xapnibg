@@ -28,4 +28,8 @@ export class UsersService {
     logout() {
 
     }
+
+    getAnalyticsData() {
+        return this.httpService.get('analytics')
+    }
 }

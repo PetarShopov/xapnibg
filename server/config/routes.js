@@ -226,6 +226,57 @@ module.exports = (app) => {
 			})
 	})
 
+	app.get('/analytics', (req, res) => {
+		Recipe.find({})
+			.then(recipes => {
+				Beverage.find({})
+					.then(beverages => {
+						Response.find({})
+							.then(responses => {
+								User.find({})
+									.then(users => {
+										res.status(200).json({
+											success: true,
+											recipes: recipes.length,
+											beverages: beverages.length,
+											responses: responses.length,
+											users: users.length,
+										})
+									})
+									.catch(err => {
+										let message = errorHandler.handleMongooseError(err)
+										return res.status(200).json({
+											success: false,
+											message: message
+										})
+									})
+							})
+							.catch(err => {
+								let message = errorHandler.handleMongooseError(err)
+								return res.status(200).json({
+									success: false,
+									message: message
+								})
+							})
+					})
+					.catch(err => {
+						let message = errorHandler.handleMongooseError(err)
+						return res.status(200).json({
+							success: false,
+							message: message
+						})
+					})
+			})
+			.catch(err => {
+				let message = errorHandler.handleMongooseError(err)
+				return res.status(200).json({
+					success: false,
+					message: message
+				})
+			})
+	})
+
+
 	app.post('/users/register', (req, res) => {
 		return passport.authenticate('local-signup', (err) => {
 			if (err) {

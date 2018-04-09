@@ -7,6 +7,7 @@ import { AllBeveragesComponent } from './all-beverages/all-beverages.component';
 import { AddBeverageComponent } from './add-beverage/add-beverage.component';
 import { BeverageService } from './beverage.service'
 import { HighlightDirective } from '../directives/highlight.directive';
+import { BlackWhiteImageDirective } from '../directives/black-white-image.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { HighlightDirective } from '../directives/highlight.directive';
   declarations: [
     AllBeveragesComponent, 
     AddBeverageComponent,
-    HighlightDirective
+    HighlightDirective,
+    BlackWhiteImageDirective
   ],
   providers: [BeverageService]
 })

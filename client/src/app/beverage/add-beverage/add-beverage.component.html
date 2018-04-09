@@ -1,22 +1,22 @@
 <div id="addBeverageWrapper">
   <form [formGroup]="beverageForm" (ngSubmit)="onSubmit()" novalidate>
     <div style="margin-bottom: 1em">
-      <button type="submit" [disabled]="!beverageForm.valid" class="btn btn-success">Save</button> &nbsp;
-      <button type="reset" (click)="revert()" [disabled]="!beverageForm.valid" class="btn btn-danger">Revert</button>
+      <button type="submit" [disabled]="!beverageForm.valid" class="btn btn-success">Запазване</button> &nbsp;
+      <button type="reset" (click)="revert()" [disabled]="!beverageForm.valid" class="btn btn-danger">Нулиране</button>
     </div>
 
     <div class="form-group">
-      <label class="center-block">Name:
+      <label class="center-block">Име:
         <input class="form-control" formControlName="name">
       </label>
     </div>
     <div class="form-group">
-      <label class="center-block">Preparation:
+      <label class="center-block">Подготовка:
         <input class="form-control" formControlName="preparation">
       </label>
     </div>
     <div class="form-group radio">
-      <h4>Preparation Time:</h4>
+      <h4>Време за подготовка:</h4>
       <label class="center-block">
         <input type="radio" formControlName="preparationTime" value="5">5</label>
       <label class="center-block">
@@ -25,12 +25,12 @@
         <input type="radio" formControlName="preparationTime" value="15">15</label>
     </div>
     <div class="form-group">
-      <label class="center-block">Ingredients:
+      <label class="center-block">Съставки:
         <input class="form-control" formControlName="ingredients">
       </label>
     </div>
     <div class="form-group">
-      <label class="center-block">Image:
+      <label class="center-block">Снимка:
         <input class="form-control" formControlName="image">
       </label>
     </div>

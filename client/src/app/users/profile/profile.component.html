@@ -1,3 +1,28 @@
 <div id="profileWrapper">
-    Test
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Вид документ</th>
+                <th>Брой</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Рецепти</td>
+                <td>{{data?.recipes}}</td>
+            </tr>
+            <tr>
+                <td>Напитки</td>
+                <td>{{data?.beverages}}</td>
+            </tr>
+            <tr>
+                <td>Обратна връзка</td>
+                <td>{{data?.responses}}</td>
+            </tr>
+            <tr>
+                <td>Потребители</td>
+                <td>{{data?.users}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
