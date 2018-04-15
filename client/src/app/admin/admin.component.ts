@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AdminService } from '../admin/admin.service';
+import { tr } from 'ngx-bootstrap';
 
 @Component({
     selector: 'admin',
@@ -23,6 +24,16 @@ export class AdminComponent implements OnInit {
 
     delete(id) {
         console.log(id);
+        this.adminService.deleteUser(id).subscribe(result => {
+            const removedId = result.output._id;
+            this.users = this.users.filter(function(item){
+              if (item['_id'] !== removedId) {
+                  return true;
+              } else {
+                  return false;
+              }  
+            });
+        })
     }
 
     getUsers() {

@@ -10,4 +10,8 @@ export class AdminService {
   getUsers(): any {
     return this.httpService.get('admin', true);
   }
+
+  deleteUser(id): any {
+    return this.httpService.post(`users/delete/${id}`, {}, true);
+  }
 }

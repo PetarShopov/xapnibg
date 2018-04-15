@@ -334,6 +334,41 @@ module.exports = (app) => {
 		})(req, res)
 	})
 
+	app.post('/users/delete/:id', (req, res) => {
+		return passport.authenticate('protected-request', (err, user) => {
+			if (err) {
+				return res.status(200).json({
+					success: false,
+					message: err.message
+				})
+			}
+
+			if (!user) {
+				return res.status(200).json({
+					success: false,
+					message: 'You do not have access to do this!'
+				})
+			}
+			const id = req.params.id
+
+			User.findByIdAndRemove(id)
+				.then(output => {
+					res.status(200).json({
+						success: true,
+						message: 'User deleted successfully.',
+						output
+					})
+				})
+				.catch(err => {
+					let message = errorHandler.handleMongooseError(err)
+					return res.status(200).json({
+						success: false,
+						message: message
+					})
+				})
+		})(req, res)
+	})
+
 	app.get('/beverages/all', (req, res) => {
 		Beverage.find({})
 			.then(beverages => {
