@@ -1,6 +1,9 @@
 #contactsWrapper {
     margin-top: 70px;
     margin-left: 33%;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
 }
 
 #title {
@@ -10,4 +13,24 @@
 
 .alert {
     padding: 10px;
+}
+  
+mat-form-field {
+    width: 100%;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+.selected-value {
+    margin: 15px 0;
+}
+
+mat-slider {
+    width: 50%;
+}
+
+#finalBtn{
+    float: right;
 }

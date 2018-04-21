@@ -208,6 +208,9 @@ module.exports = (app) => {
 				email: responseReq.email || 'No Email',
 				subject: responseReq.subject || 'No Subject',
 				message: responseReq.message || 'No Message',
+				date: responseReq.date || 'No Date',
+				type: responseReq.type || 'No Type',
+				mark: responseReq.mark || 'No Mark',
 				timestamp: +Date.now()
 			})
 			.then(response => {

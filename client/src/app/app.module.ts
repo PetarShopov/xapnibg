@@ -4,6 +4,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UsersModule } from './users/users.module';
 import { BeverageModule } from './beverage/beverage.module';
 import { RecipeModule } from './recipe/recipe.module';
@@ -21,6 +22,10 @@ import { DialogService } from './dialog.service';
 import { ContactsService } from './contacts/contacts.service';
 import { AdminService } from './admin/admin.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatFormFieldModule, MatInputModule,
+        MatDatepickerModule, MatNativeDateModule, MatRadioModule, 
+        MatSliderModule, MatStepperModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -36,10 +41,20 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
     HttpModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     UsersModule,
     BeverageModule,
     RecipeModule,
-    RoutesModule
+    RoutesModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatStepperModule
   ],
   providers: [
     DialogService,
