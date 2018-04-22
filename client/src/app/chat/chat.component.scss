@@ -1,0 +1,53 @@
+#chatWrapper {
+    margin-top: 70px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+#author {
+    font-weight: bold;
+    padding: 3px;
+}
+
+p{
+    margin: 0px;
+}
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.right {
+    float: right;
+    color: #aaa;
+}
+
+.left {
+    float: left;
+    color: #999;
+}
+
+input {
+    width: 94%;
+    display: inline-block;
+}
+
+#header {
+    text-align: center;
+}

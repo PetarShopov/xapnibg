@@ -35,6 +35,9 @@
 			<li>
 				<a routerLink="/contacts">Контакти</a>
 			</li>
+			<li *ngIf="authenticated">
+				<a routerLink="/chat">Чат</a>
+			</li>
 		</ul>
 		<span *ngIf="isOwner">
 			<ul class="nav navbar-nav">

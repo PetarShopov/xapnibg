@@ -8,6 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersModule } from './users/users.module';
 import { BeverageModule } from './beverage/beverage.module';
 import { RecipeModule } from './recipe/recipe.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatFormFieldModule, MatInputModule,
+        MatDatepickerModule, MatNativeDateModule, MatRadioModule, 
+        MatSliderModule, MatStepperModule} from '@angular/material';
 
 import { CoreModule } from './core/core.module';
 import { RoutesModule } from './routes.modules';
@@ -16,16 +20,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AdminComponent } from './admin/admin.component';
+import { ChatComponent } from './chat/chat.component';
 
 import { AuthService } from './core/auth.service'
 import { DialogService } from './dialog.service';
 import { ContactsService } from './contacts/contacts.service';
 import { AdminService } from './admin/admin.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatFormFieldModule, MatInputModule,
-        MatDatepickerModule, MatNativeDateModule, MatRadioModule, 
-        MatSliderModule, MatStepperModule} from '@angular/material';
+import { ChatService } from './chat/chat.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule,
     NavbarComponent,
     HomeComponent,
     ContactsComponent,
-    AdminComponent
+    AdminComponent,
+    ChatComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -60,7 +63,8 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule,
     DialogService,
     CanDeactivateGuard,
     ContactsService,
-    AdminService
+    AdminService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

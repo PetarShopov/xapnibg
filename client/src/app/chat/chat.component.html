@@ -1,0 +1,16 @@
+<div id="chatWrapper">
+    <h2 id="header">Group Chat Room</h2>
+    <div *ngFor="let message of messages">
+        <div [ngClass]="{'darker': message.author === currentUser}" class="container">
+            <div id="author" *ngIf="message.author === currentUser" style="text-align: left">{{message.author}}</div>
+            <div id="author" *ngIf="message.author !== currentUser" style="text-align: right">{{message.author}}</div>
+            <p *ngIf="message.author === currentUser" style="text-align: left">{{message.message}}</p>
+            <p *ngIf="message.author !== currentUser" style="text-align: right">{{message.message}}</p>
+            <span *ngIf="message.author === currentUser" class="right">{{message.currentTime}}</span>
+            <span *ngIf="message.author !== currentUser" class="left">{{message.currentTime}}</span>
+        </div>
+    </div>
+    <br>
+    <input [(ngModel)]="message" class="form-control" (keyup)="$event.keyCode == 13 && sendMessage()" />
+    <button (click)="sendMessage()" type="button" class="btn btn-default">></button>
+</div>

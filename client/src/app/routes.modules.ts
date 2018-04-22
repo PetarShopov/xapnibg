@@ -10,6 +10,7 @@ import { AllBeveragesComponent } from './beverage/all-beverages/all-beverages.co
 import { AddBeverageComponent } from './beverage/add-beverage/add-beverage.component'
 import { ContactsComponent } from './contacts/contacts.component'
 import { AdminComponent } from './admin/admin.component'
+import { ChatComponent } from './chat/chat.component'
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'beverages/add-beverage', component: AddBeverageComponent },
     { path: 'contacts', component: ContactsComponent },
     { path: 'admin', component: AdminComponent },
+    { path: 'chat', component: ChatComponent },
     { path: '**', component: HomeComponent }
 ];
 
