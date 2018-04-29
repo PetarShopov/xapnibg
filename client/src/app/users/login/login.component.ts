@@ -24,16 +24,16 @@ export class LoginComponent {
     login() {
         this.userService.login(this.user)
             .subscribe(user => {
-                if (user.success) {
-                    this.authService.authenticateUser(user.token);
-                    this.authService.saveUser(user.user.name);
-                    this.authService.saveRole(user.user.role);
+                if (user['success']) {
+                    this.authService.authenticateUser(user['token']);
+                    this.authService.saveUser(user['user'].name);
+                    this.authService.saveRole(user['user'].role);
                     this.userService.finishLogin();
                     
                     this.router.navigateByUrl('')
                 } else {
                     this.isErrorMsgVisible = true;
-                    this.errorMsg = user.message;
+                    this.errorMsg = user['message'];
                     var that = this
                     setTimeout(function(){ 
                         that.isErrorMsgVisible = false; 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersModule } from './users/users.module';
@@ -41,7 +41,7 @@ import { ChatService } from './chat/chat.service';
   imports: [
     AlertModule.forRoot(),
     CoreModule,
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

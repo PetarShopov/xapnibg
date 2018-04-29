@@ -42,6 +42,6 @@ export class RecipeService {
   }
 
   getRecipeById(id): Observable<RecipeModel> {
-    return this.httpService.get(`recipes/${id}`);
+    return <Observable<RecipeModel>>this.httpService.get(`recipes/${id}`);
   }
 }

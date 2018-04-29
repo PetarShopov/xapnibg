@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class ChatService {
     private url = 'http://localhost:1337';
+    // private url = 'https://xapnibg-server.herokuapp.com/'
     private socket;    
 
     constructor() {

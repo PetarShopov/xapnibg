@@ -12,7 +12,7 @@ module.exports = {
 	staging: {
 	},
 	production: {
-		db: '',
+		db: 'mongodb://petar:123456@ds251807.mlab.com:51807/xapnibg',
 		port: process.env.PORT
 	}
 }

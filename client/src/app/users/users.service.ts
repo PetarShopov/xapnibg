@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../core/http.service'
-import {Subject} from 'rxjs/Subject';
-import {Observable} from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { LoginUserModel } from './models/login-user.model';
 
 @Injectable()
 export class UsersService {
@@ -9,7 +10,7 @@ export class UsersService {
 
     constructor(private httpService: HttpService) { }
 
-    auth():Observable<Object> {
+    auth(): Observable<Object> {
         return this.subject;
     }
 

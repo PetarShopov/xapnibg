@@ -7,16 +7,13 @@ import { UsersService } from '../users.service';
     styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-    data: {
-        recipes: 0,
-        beverages: 0,
-        responses: 0,
-        users: 0
-    };
+    private data;
 
     constructor(
-        private usersService: UsersService
-    ) { }
+        private usersService: UsersService,
+    ) { 
+        this.data =  { }
+    }
 
     ngOnInit() {
         this.getAnalyticsData();
@@ -24,8 +21,11 @@ export class ProfileComponent implements OnInit {
 
     getAnalyticsData() {
         this.usersService.getAnalyticsData().subscribe(data => {
-            if (data.success) {
-                this.data = data;
+            if (data['success']) {
+                this.data.recipes = data['recipes'] || 0;
+                this.data.beverages = data['beverages'] || 0;
+                this.data.responses = data['responses'] || 0;
+                this.data.users = data['users'] || 0;
             }
         })
     }

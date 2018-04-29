@@ -18,6 +18,6 @@ export class BeverageService {
   }
 
   getBeverageById(id): Observable<BeverageModel> {
-    return this.httpService.get(`beverages/${id}`);    
+    return <Observable<BeverageModel>>this.httpService.get(`beverages/${id}`);    
   }
 }

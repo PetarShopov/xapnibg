@@ -22,11 +22,11 @@ export class RegisterComponent {
     register() {
         this.userService.register(this.user)
             .subscribe(userRegistered => {
-                if (userRegistered.success) {
+                if (userRegistered['success']) {
                     this.router.navigateByUrl('users/login')
                 } else {
                     this.isErrorMsgVisible = true;
-                    this.errorMsg = userRegistered.message;
+                    this.errorMsg = userRegistered['message'];
                     var that = this
                     setTimeout(function(){ 
                         that.isErrorMsgVisible = false; 

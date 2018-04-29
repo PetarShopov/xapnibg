@@ -1,10 +1,10 @@
 <div id="contactsWrapper">
 	<div id="title">Връзка с нас</div>
 	<form [formGroup]="contactsForm" novalidate>
-		<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+		<mat-horizontal-stepper [linear]=true #stepper="matHorizontalStepper">
 			<mat-step>
 				<ng-template matStepLabel>Вашите данни</ng-template>
-				<mat-form-field [hideRequiredMarker]=true [floatLabel]="auto">
+				<mat-form-field [hideRequiredMarker]=true [floatLabel]=true>
 					<input matInput placeholder="Име" required formControlName="name">
 				</mat-form-field>
 
@@ -19,7 +19,7 @@
 			</mat-step>
 			<mat-step>
 				<ng-template matStepLabel>Детайли</ng-template>
-				<mat-form-field [floatLabel]="auto">
+				<mat-form-field [floatLabel]=true>
 					<input matInput placeholder="Причина" formControlName="subject">
 				</mat-form-field>
 
@@ -29,7 +29,7 @@
 					<mat-datepicker #picker></mat-datepicker>
 				</mat-form-field>
 
-				<mat-form-field [floatLabel]="auto" hintLabel="Максимум 160 символа">
+				<mat-form-field [floatLabel]=true hintLabel="Максимум 160 символа">
 					<input matInput placeholder="Съобщение" maxlength="160" formControlName="message" #input>
 					<mat-hint align="end">{{input.value?.length || 0}}/160</mat-hint>
 				</mat-form-field>
