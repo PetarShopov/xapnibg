@@ -17,41 +17,22 @@ export class HttpService {
         private authService: AuthService
     ) { }
 
-    get(url, authenicated = false) {
-        const httpOptions = this.getHttpOptions(getMethod, authenicated);
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    };
 
+    get(url, authenicated = false) {
         return this.http
-            .get(`${baseUrl}${url}`, httpOptions)
+            .get(`${baseUrl}${url}`, this.httpOptions)
             .pipe()
-            
+
     }
 
     post(url, data, authenicated = false) {
-        const httpOptions = this.getHttpOptions(postMethod, authenicated);
-
         return this.http
-            .post(`${baseUrl}${url}`, data, httpOptions)
+            .post(`${baseUrl}${url}`, data, this.httpOptions)
             .pipe()
-    }
-
-    private getHttpOptions(method, authenicated) {
-        let httpOptions = {};
-        if (authenicated) {
-            const token = this.authService.getToken()
-            httpOptions = {
-                headers: new HttpHeaders({ 
-                    'Content-Type': 'application/json',
-                    'Authorization': `bearer ${token}` 
-                })
-            }
-        } else {
-            httpOptions = {
-                headers: new HttpHeaders({ 
-                    'Content-Type': 'application/json'
-                })
-            }
-        }
-
-        return httpOptions;
     }
 }
