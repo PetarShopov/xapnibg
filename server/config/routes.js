@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Recipe = mongoose.model('Recipe')
 const Beverage = mongoose.model('Beverage')
 const Response = mongoose.model('Response')
+const Post = mongoose.model('Post')
 const User = mongoose.model('User')
 const errorHandler = require('../utilities/error-handler')
 const passport = require('passport')
@@ -418,6 +419,70 @@ module.exports = (app) => {
 						success: true,
 						message: 'Beverage added successfully.',
 						beverage
+					})
+				})
+				.catch(err => {
+					let message = errorHandler.handleMongooseError(err)
+					return res.status(200).json({
+						success: false,
+						message: message
+					})
+				})
+		})(req, res)
+	})
+
+	app.get('/posts/all', (req, res) => {
+		const page = parseInt(req.query.page) || 1
+		const pageSize = 6
+
+		let startIndex = (page - 1) * pageSize
+		let endIndex = startIndex + pageSize
+
+		Post.find({})
+			.then(posts => {
+				posts = posts.slice(startIndex, endIndex)
+				res.status(200).json({ posts })
+			})
+			.catch(err => {
+				let message = errorHandler.handleMongooseError(err)
+				return res.status(200).json({
+					success: false,
+					message: message
+				})
+			})
+	})
+
+	app.post('/posts/add', (req, res) => {
+		return passport.authenticate('protected-request', (err, user) => {
+			if (err) {
+				return res.status(200).json({
+					success: false,
+					message: err.message
+				})
+			}
+
+			if (!user) {
+				return res.status(200).json({
+					success: false,
+					message: 'You do not have access to do this!'
+				})
+			}
+			let postReq = req.body;
+
+			Post
+				.create({
+					content: postReq.content || 'No Content',
+					likes: 0,
+					comments: [],
+					image: postReq.image || 'No Image',
+					author: postReq.author,
+					timestamp: +Date.now()
+				})
+				.then(post => {
+					res.status(200).json({
+						success: true,
+						message: 'Post added successfully.',
+						post
 					})
 				})
 				.catch(err => {

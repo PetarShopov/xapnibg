@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersModule } from './users/users.module';
 import { BeverageModule } from './beverage/beverage.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { FeedModule } from './feed/feed.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
 	MatButtonModule, MatFormFieldModule, MatInputModule,
@@ -51,6 +52,7 @@ import { AuthInterceptor } from './http-interceptors/auth-interceptor'
 		UsersModule,
 		BeverageModule,
 		RecipeModule,
+		FeedModule,
 		RoutesModule,
 		BrowserAnimationsModule,
 		MatButtonModule,
