@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AdminService } from '../admin/admin.service';
-import { tr } from 'ngx-bootstrap';
 
 @Component({
     selector: 'admin',

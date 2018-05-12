@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../core/http.service'
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { PostModel } from '../models/post.model';
 import { AuthService } from '../core/auth.service';
 

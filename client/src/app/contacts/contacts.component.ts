@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ContactsService } from './contacts.service'

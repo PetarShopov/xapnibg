@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AlertModule } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +42,6 @@ import { AuthInterceptor } from './http-interceptors/auth-interceptor'
 		ChatComponent
 	],
 	imports: [
-		AlertModule.forRoot(),
 		CoreModule,
 		HttpClientModule,
 		BrowserModule,

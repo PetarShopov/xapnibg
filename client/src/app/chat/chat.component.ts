@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { ChatService } from './chat.service';
 import { AuthService } from '../core/auth.service';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/skipWhile';
-import 'rxjs/add/operator/throttleTime';
-import 'rxjs/add/operator/takeWhile';
+import {distinctUntilChanged, filter, skipWhile, throttleTime, takeWhile} from 'rxjs/operators';
 
 @Component({
     selector: 'chat',
@@ -32,11 +28,15 @@ export class ChatComponent implements OnInit {
     ngOnInit() {
         this.chatService
             .getMessages()
-            .distinctUntilChanged()
-            .filter((message) => message.content.trim().length > 0)
-            .throttleTime(1000)
-            .takeWhile((message) => message.content !== this.endConversationCode)
-            .skipWhile((message) => message.content !== this.secretCode)
+            .pipe(
+                distinctUntilChanged(),
+                filter((message) => {
+                   return message['content'].trim().length > 0
+                }),
+                throttleTime(1000),
+                takeWhile((message) => message['content'] !== this.endConversationCode),
+                skipWhile((message) => message['content'] !== this.secretCode)
+            )
             .subscribe((message: object) => {
                 let currentTime = moment().format('hh:mm:ss a');
                 let messageWithTimestamp = {};
