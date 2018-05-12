@@ -16,6 +16,7 @@ export class AllPostsComponent implements OnInit {
     posts: Array<object> = [];
     isLoading = false;
     model = new PostModel(null, '', 0, [], '');
+    message: string = '';
 
     constructor(
         private router: Router,
@@ -24,12 +25,13 @@ export class AllPostsComponent implements OnInit {
     ) { }
 
     onSubmit() {
-		this.feedService.addPost(this.model)
-			.subscribe(result => {
-				this.router.navigateByUrl(`/feed/all-posts`)
-			});;
+        this.feedService.addPost(this.model)
+            .subscribe(result => {
+                this.getPosts(this.page);
+                this.model.content = '';
+            });;
     }
-    
+
     ngOnInit() {
         this.route
             .queryParams
@@ -38,6 +40,35 @@ export class AllPostsComponent implements OnInit {
                 this.getPosts(this.page);
             })
 
+    }
+
+    onComment(postData: object) {
+        this.feedService.addComment(postData).subscribe(data => {
+            this.message = 'Post commented!';
+            setTimeout(() => {
+                this.message = ''
+            }, 2000);
+        })
+    }
+
+    onLike(postData: object) {
+        this.feedService.addLike(postData).subscribe(data => {
+            this.message = 'Post liked!';
+            setTimeout(() => {
+                this.message = ''
+            }, 2000);
+            this.getPosts(this.page);
+        })
+    }
+
+    onDelete(postData: object) {
+        this.feedService.deletePost(postData).subscribe(data => {
+            this.message = 'Post deleted!';
+            setTimeout(() => {
+                this.message = ''
+            }, 2000);
+            this.getPosts(this.page);
+        })
     }
 
     getPosts(page) {
@@ -53,11 +84,7 @@ export class AllPostsComponent implements OnInit {
             return;
         }
         this.page = this.page - 1
-
-        this.feedService.getPosts(this.page).subscribe(data => {
-            this.posts = data.recipes;
-            this.isLoading = false;
-        })
+        this.getPosts(this.page);
     }
 
     nextPage() {
@@ -65,10 +92,7 @@ export class AllPostsComponent implements OnInit {
             return;
         }
         this.page = this.page + 1
-        this.feedService.getPosts(this.page).subscribe(data => {
-            this.posts = data.recipes;
-            this.isLoading = false;
-        })
+        this.getPosts(this.page);
     }
 
     private getUrl(page) {

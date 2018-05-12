@@ -495,6 +495,120 @@ module.exports = (app) => {
 		})(req, res)
 	})
 
+	app.post('/posts/comment', (req, res) => {
+		return passport.authenticate('protected-request', (err, user) => {
+			if (err) {
+				return res.status(200).json({
+					success: false,
+					message: err.message
+				})
+			}
+
+			if (!user) {
+				return res.status(200).json({
+					success: false,
+					message: 'You do not have access to do this!'
+				})
+			}
+			let postReq = req.body;
+
+			Post
+				.update(
+					{ _id: postReq._id },{
+					comments: postReq.comments
+				})
+				.then(post => {
+					res.status(200).json({
+						success: true,
+						message: 'Post commented successfully.',
+						post
+					})
+				})
+				.catch(err => {
+					let message = errorHandler.handleMongooseError(err)
+					return res.status(200).json({
+						success: false,
+						message: message
+					})
+				})
+		})(req, res)
+	})
+
+	app.post('/posts/like', (req, res) => {
+		return passport.authenticate('protected-request', (err, user) => {
+			if (err) {
+				return res.status(200).json({
+					success: false,
+					message: err.message
+				})
+			}
+
+			if (!user) {
+				return res.status(200).json({
+					success: false,
+					message: 'You do not have access to do this!'
+				})
+			}
+			let postReq = req.body;
+
+			Post
+				.update(
+					{ _id: postReq._id },{
+					likes: postReq.likes
+				})
+				.then(post => {
+					res.status(200).json({
+						success: true,
+						message: 'Post liked successfully.',
+						post
+					})
+				})
+				.catch(err => {
+					let message = errorHandler.handleMongooseError(err)
+					return res.status(200).json({
+						success: false,
+						message: message
+					})
+				})
+		})(req, res)
+	})
+
+	app.post('/posts/delete', (req, res) => {
+		return passport.authenticate('protected-request', (err, user) => {
+			if (err) {
+				return res.status(200).json({
+					success: false,
+					message: err.message
+				})
+			}
+
+			if (!user) {
+				return res.status(200).json({
+					success: false,
+					message: 'You do not have access to do this!'
+				})
+			}
+			let postReq = req.body;
+			const id = postReq._id
+
+			Post.findByIdAndRemove(id)
+				.then(output => {
+					res.status(200).json({
+						success: true,
+						message: 'Post deleted successfully.',
+						output
+					})
+				})
+				.catch(err => {
+					let message = errorHandler.handleMongooseError(err)
+					return res.status(200).json({
+						success: false,
+						message: message
+					})
+				})
+		})(req, res)
+	})
+
 	app.all('*', (req, res) => {
 		res.status(404)
 		res.send('404 Not Found!')

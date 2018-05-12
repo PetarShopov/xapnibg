@@ -1,34 +1,34 @@
 <div id="registerContainer">
     <div id="messageContainer" *ngIf="isErrorMsgVisible">{{errorMsg}}</div>        
-    <h1>Register User</h1>
+    <h1>Регистрация</h1>
     <form #registerForm="ngForm" (submit)="register()">
         <div class="form-group">
-            <label for="firstName">First name</label>
+            <label for="firstName">Име</label>
             <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
                 required />
-            <span [hidden]="firstName.valid || firstName.pristine">First name is required!</span>
+            <span [hidden]="firstName.valid || firstName.pristine">Името е задължително!</span>
         </div>
         <div class="form-group">
-            <label for="lastName">Last name</label>
+            <label for="lastName">Фамилия</label>
             <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" required/>
-            <span [hidden]="lastName.valid || lastName.pristine">Last name is required!</span>
+            <span [hidden]="lastName.valid || lastName.pristine">Фамилията е задължителна!</span>
         </div>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required/>
-            <span [hidden]="username.valid || username.pristine">Username is required!</span>
+            <span [hidden]="username.valid || username.pristine">Username е задължителен!</span>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Парола</label>
             <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required/>
-            <span [hidden]="password.valid || password.pristine">Password is required!</span>
+            <span [hidden]="password.valid || password.pristine">Паролата е задължителна!</span>
         </div>
         <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
+            <label for="confirmPassword">Потвърди парола</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
                 #confirmPassword="ngModel" required />
-            <span [hidden]="password.value === confirmPassword.value || confirmPassword.pristine">Passwords don't match!</span>
+            <span [hidden]="password.value === confirmPassword.value || confirmPassword.pristine">Паролите не съвпадат!</span>
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid || password.value !== confirmPassword.value">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid || password.value !== confirmPassword.value">Потвърди</button>
     </form>
 </div>

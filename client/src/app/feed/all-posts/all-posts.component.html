@@ -1,15 +1,14 @@
 <div id="allPostsWrapper">
     <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
         <input type="text" class="form-control" id="content" required [(ngModel)]="model.content" name="content" #content="ngModel">
-        <button type="submit" class="btn btn-success" [disabled]="!recipeForm.form.valid">Потвърди</button>
+        <button type="submit" class="btn btn-default" [disabled]="!recipeForm.form.valid">Потвърди</button>
     </form>
-    <div class="col-sm-12" id="allPostsContainer">
+    <div id="message">{{message}}</div>
+    <div id="allPostsContainer">
         <div *ngIf="posts.length === 0">No more posts available!</div>
-        <div *ngFor="let post of posts">
-            <div id="postContent">{{post.content | uppercase}}</div>
-        </div>
+        <post *ngFor="let post of posts" [post]="post" (onComment)="onComment($event)" (onLike)="onLike($event)" (onDelete)="onDelete($event)"></post>
     </div>
-    <div>
+    <div id="navigation">
         <button class="btn btn-default" [disabled]="page === 1" (click)="prevPage()">Prev</button>
         <button class="btn btn-default" [disabled]="posts.length === 0 || posts.length < 6" (click)="nextPage()">Next</button>
     </div>

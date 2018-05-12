@@ -1,0 +1,15 @@
+<div id="commentWrapper">
+    <div class="card">
+        <h5 class="card-title">{{post.content | uppercase}}</h5>
+        <div *ngIf="showComment" class="card-body">
+            <div class="comment" *ngFor="let comment of post.comments">{{comment}}</div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-default btn-sm" (click)="addLike()">Likes => {{post.likes}}</button>
+            <button class="btn btn-default btn-sm" (click)="show()">Comment</button>
+            <button class="btn btn-default btn-sm" (click)="delete()">Delete</button>
+            <input *ngIf="showComment" type="text" id="comment" [(ngModel)]="comment" class="form-control">
+            <button *ngIf="showComment" class="btn btn-default btn-sm" (click)="addComment()">Submit</button>
+        </div>
+    </div>
+</div>

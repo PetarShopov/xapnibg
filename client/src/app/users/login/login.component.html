@@ -1,18 +1,18 @@
 <div id="loginContainer">
     <div id="messageContainer" *ngIf="isErrorMsgVisible">{{errorMsg}}</div>
-    <h1>Login Form</h1>
+    <h1>Вход</h1>
     <form #loginForm="ngForm" (submit)="login()">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required/>
-            <span [hidden]="username.valid || username.pristine">Username is required!</span>
+            <span [hidden]="username.valid || username.pristine">Username е задължителен!</span>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Парола</label>
             <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel"
                 required/>
-            <span [hidden]="password.valid || password.pristine">Password is required!</span>
+            <span [hidden]="password.valid || password.pristine">Паролата е задължителна!</span>
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Потвърди</button>
     </form>
 </div>

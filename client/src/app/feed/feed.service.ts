@@ -21,4 +21,16 @@ export class FeedService {
 		post.author = this.authService.getUser();
 		return this.httpService.post('posts/add', post, true);
 	}
+
+	addComment(postData): any {
+		return this.httpService.post('posts/comment', postData, true);
+	}
+
+	addLike(postData): any {
+		return this.httpService.post('posts/like', postData, true);
+	}
+
+	deletePost(postData): any {
+		return this.httpService.post('posts/delete', postData, true);
+	}
 }
